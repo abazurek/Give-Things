@@ -1,11 +1,12 @@
 import React from "react";
 
-const Header = () =>{
+function Home() {
+
 
     return(
         <div>
-            <h1>Header</h1>
+            Main site
         </div>
     )
-};
-export default Header;
+}
+export default Home
