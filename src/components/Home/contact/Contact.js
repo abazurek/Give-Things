@@ -1,0 +1,12 @@
+import React from "react";
+
+export default function Contact() {
+
+    return(
+        <section id='contact' className='contactSection'>
+            <div>
+                Contact
+            </div>
+        </section>
+    )
+}

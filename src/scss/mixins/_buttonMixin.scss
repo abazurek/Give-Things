@@ -1,0 +1,15 @@
+@mixin button(){
+  color: $color-font-base;
+  font-family: $font-base;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2.25em;
+  width: 8.6em;
+  height: 3.33em;
+  padding: 0.36em 2.58em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border:0.75px solid $color-font-base;
+}

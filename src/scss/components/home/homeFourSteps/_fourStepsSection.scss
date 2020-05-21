@@ -1,0 +1,55 @@
+.fourStepsSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .titleBox{
+    text-align: center;
+    h2{
+
+      font-size: 2.375em;
+      margin-top: 1.45em;
+    }
+    img{
+      margin-top: 1.5625em;
+      margin-bottom: 2.125em;
+    }
+  }
+  .iconsBox{
+    background-color: $color-background-accent;
+    .container{
+      display: flex;
+      justify-content: space-between;
+      .singleIconBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4.5625em;
+        margin-bottom: 5em;
+        .firstSpan{
+          font-size: 1.125em;
+          margin:0.45em auto;
+        }
+        hr{
+          display: block;
+          color: $color-font-accent;
+          width: 30%;
+
+        }
+      }
+    }
+  }
+
+  .buttonBox{
+    display: flex;
+    justify-content: center;
+    margin-top: 2.1875em;
+    margin-bottom: 5em;
+    button{
+      @include button;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
+}
