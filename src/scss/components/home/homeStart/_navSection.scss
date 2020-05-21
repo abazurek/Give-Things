@@ -1,0 +1,14 @@
+.navList{
+  display: flex;
+  justify-content: flex-end;
+  li{
+    padding: 9px 20px;
+    margin-left: 15px;
+    &:hover{
+      cursor: pointer;
+    }
+    &:first-child{
+      border: 0.75px solid $color-font-base;
+    }
+  }
+}

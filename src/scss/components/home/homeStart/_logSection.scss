@@ -1,0 +1,20 @@
+.logList{
+  display: flex;
+  justify-content: flex-end;
+
+  li{
+    padding: 9px 10px;
+    margin-top: 40px;
+    margin-left: 10px;
+    font-size: 14px;
+    a{
+      color: $color-font-accent;
+    }
+
+  }
+  .registerLink{
+    border: 0.75px solid $color-border-accent;
+  }
+
+  margin-bottom: 17px;
+}

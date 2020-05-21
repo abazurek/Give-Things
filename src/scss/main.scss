@@ -1,15 +1,23 @@
 @import "settings/all";
-@import "generic/reset";
+@import "mixins/all";
+@import "components/all";
 
+html{
+  font-size: 16px;
+}
 body {
   font-family: $font-base;
-
-  //margin: 0;
-  //-webkit-font-smoothing: antialiased;
-  //-moz-osx-font-smoothing: grayscale;
+  color: $color-font-base;
 }
 
-//code {
-//  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-//  monospace;
-//}
+.container{
+  max-width: 1250px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.navLink{
+  text-decoration: none;
+  color: $color-font-base;
+}
