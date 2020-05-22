@@ -1,4 +1,90 @@
 .contactSection{
-  height: 800px;
-  font-size: 50px;
+  position: relative;
+  &:after{
+    content: '';
+    background-image: url("../../../../assets/Background-Contact-Form.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .contactBox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .text{
+      text-align: center;
+      margin-top: 12.5em;
+      margin-bottom: 4.375em;
+      h2{
+        font-size: 3.25em;
+      }
+      img{
+        margin-top: 1.5625em;
+      }
+    }
+
+    form{
+      margin-bottom: 17.0625em;
+      display: flex;
+      flex-direction: column;
+      label{
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+        &:first-child{
+          margin-right: 1em;
+        }
+        input, textarea{
+          margin-top: 0.5em;
+          border: none;
+          background: none;
+          font-size: 1.125em;
+          padding: 4px 0;
+          border-bottom: 1px solid $color-border-input;
+          &:focus{
+            outline: none;
+          }
+          &::placeholder{
+            color: $color-font-placeholder;
+          }
+
+        }
+      }
+      .message{
+        margin-top:2.5em;
+        margin-bottom: 2.5em;
+        textarea{
+          height:7.5em;
+        }
+      }
+      .inputsBox{
+        display: flex;
+        input{
+          width: 16em;
+        }
+      }
+      .buttonBox{
+        display: flex;
+        justify-content: flex-end;
+        button{
+          border: 0.75px solid $color-font-base;
+          font-weight: 300;
+          background: none;
+          font-size: 1.125em;
+          padding: 0.72em 2.89em;
+          &:hover{
+            cursor: pointer;
+          }
+
+        }
+      }
+    }
+  }
 }
