@@ -1,15 +1,41 @@
-@import "logSection";
-@import "navSection";
-@import "startSection";
 
 .startPage{
   min-height: 100vh;
   background-image: url("../../../../assets/Home-Hero-Image.jpg");
   background-size: auto;
   background-repeat: no-repeat;
-  background-position-x: -500px;
+  background-position-x: -483px;
   background-position-y: 50px;
-
+  z-index: 1;
   display: flex;
   flex-direction: column;
+  .startMainSection {
+    margin-top: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .textBox{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span{
+        font-size: 38px;
+        color: $color-font-base;
+      }
+    }
+    img{
+      margin-top:1.5625em;
+      margin-bottom: 4.0625em;
+    }
+    .main-section-buttons{
+      display: flex;
+      justify-content: space-between;
+      button{
+        @include button;
+        &:first-child{
+          margin-right: 1.22em;
+        }
+      }
+    }
+  }
 }
