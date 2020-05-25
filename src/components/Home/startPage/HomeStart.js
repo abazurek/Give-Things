@@ -1,24 +1,26 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
-import LogSection from "./header/LogSection";
-import NavSection from "./header/NavSection";
-import MainSection from "./mainSection";
-
-
+import decoration from './../../../assets/Decoration.svg'
 function HomeStart() {
     return (
-        <>
             <section className='startPage'>
-                <header className='container'>
-                    <LogSection/>
-                    <NavSection/>
-                </header>
                 <div className='container'>
-                    <MainSection/>
+                    <div id='main-section' className='startMainSection'>
+                        <div className='textBox'>
+                            <span>Zacznij pomagać! </span>
+                            <span>Oddaj niechciane rzeczy w zaufane ręce</span>
+                            <img src={decoration} alt='decoration icon'/>
+                        </div>
+
+                        <div className='main-section-buttons'>
+                            <button><NavLink className='navLink' to={'/login'}>oddaj rzeczy</NavLink></button>
+                            <button><NavLink className='navLink' to={'/login'}>zorganizuj zbiórkę</NavLink></button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-        </>
     )
 }
 

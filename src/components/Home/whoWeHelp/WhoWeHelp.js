@@ -4,18 +4,14 @@ import organizations from "./HelpInfo";
 
 import decoration from './../../../assets/Decoration.svg'
 
-
-
-
-
 export default function WhoWeHelp() {
 
     const [info,setInfo]=useState('');
     let choosen=organizations.Fundacje;
 
     let borderF = 'active';
-    let borderS = false;
-    let borderT = false;
+    let borderS = null;
+    let borderT = null;
 
     switch (info) {
         case "first": choosen=organizations.Fundacje;
@@ -23,11 +19,11 @@ export default function WhoWeHelp() {
             break;
         case "second":choosen=organizations.Ogranizacje;
             borderS="active";
-            borderF=false;
+            borderF=null;
             break;
         case "third":choosen=organizations.Zbiorki;
             borderT="active";
-            borderF=false;
+            borderF=null;
             break;
         default: break
     }
