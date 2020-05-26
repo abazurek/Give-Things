@@ -2,7 +2,9 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 import decoration from './../../../assets/Decoration.svg'
-function HomeStart() {
+import {connect} from "react-redux";
+
+function HomeStart({user}) {
     return (
             <section className='startPage'>
                 <div className='container'>
@@ -14,8 +16,8 @@ function HomeStart() {
                         </div>
 
                         <div className='main-section-buttons'>
-                            <button><NavLink className='navLink' to={'/login'}>oddaj rzeczy</NavLink></button>
-                            <button><NavLink className='navLink' to={'/login'}>zorganizuj zbiórkę</NavLink></button>
+                            <button>{user?<NavLink className='navLink' to={'/giveThings'}>oddaj rzeczy</NavLink> :<NavLink className='navLink' to={'/login'}>oddaj rzeczy</NavLink>}</button>
+                            <button>{user? 'zorganizuj zbiórkę':<NavLink className='navLink' to={'/login'}>zorganizuj zbiórkę</NavLink>}</button>
                         </div>
                     </div>
                 </div>
@@ -23,5 +25,8 @@ function HomeStart() {
 
     )
 }
+const mapStateToProps = (state) =>({
+    user: state.log.user
+});
 
-export default HomeStart
+export default connect(mapStateToProps) (HomeStart)

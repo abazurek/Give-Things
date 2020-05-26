@@ -1,14 +1,25 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {connect} from "react-redux";
+import actions from "../../../app/log/duck/actions";
 
-function LogSection() {
+function LogSection({user,setUser}) {
 
     return(
         <ul className='logList'>
-            <li><NavLink to={'/login'} className='navLink'>Zaloguj</NavLink></li>
-            <li className='registerLink'><NavLink to={'/register'} className='navLink'>Załóż konto</NavLink></li>
+            {user?<li>Cześć {user}!</li> : '' }
+            <li>{user?<NavLink className='navLink borderLink' to={'/giveThings'}>Oddaj rzeczy</NavLink> : <NavLink to={'/login'} className='navLink'>Zaloguj</NavLink>}</li>
+            <li>{ user?<NavLink className='navLink' to={'logOut'} onClick={()=>setUser(false)} >Wyloguj</NavLink> :<NavLink to={'/register'} className='navLink borderLink'>Załóż konto</NavLink>}</li>
         </ul>
     )
 }
 
-export default LogSection
+const mapStateToProps = (state) =>({
+    user: state.log.user
+});
+
+const mapDispatchToProps=dispatch =>({
+    setUser: value => dispatch(actions.setUser(value))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps) (LogSection)

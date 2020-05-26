@@ -1,0 +1,24 @@
+.logOutSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2{
+    margin-top: 3.075em;
+    font-size: 2.5em;
+  }
+  img{
+    margin-top: 1.5625em;
+    margin-bottom: 2.1875em;
+  }
+  button{
+    background: none;
+    border: 0.75px solid $color-font-base;
+    padding: 0.72em 0.83em;
+    font-size:1.125em;
+    font-family: $font-base;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+}

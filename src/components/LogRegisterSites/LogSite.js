@@ -1,18 +1,37 @@
 import React, {useState} from "react";
-import decoration from '../../assets/Decoration.svg'
 import {NavLink} from "react-router-dom";
-// import validateEmail from "../validateEmail";
+import {connect} from 'react-redux'
+import operations from "../../app/log/duck/operations";
+
+import decoration from '../../assets/Decoration.svg'
+import validateEmail from "../validateEmail";
 
 const information={email:'',password:''};
 
-function LoginSite() {
+function LoginSite({user,error,login}) {
 
     const [info, setInfo]=useState(information);
+    const [trueOrFalse, setTrueOrFalse] = useState({email: false, password: false});
     const[message,setMessage]=useState(false);
+
+    const style = {
+        color: 'red',
+        fontSize: '12px'
+    };
 
     function submitForm(e) {
         e.preventDefault();
+        if (!validateEmail(info.email) || info.email === information.email) {
+            setTrueOrFalse(prev => ({...prev, email: true}));
+            return;
+        } else setTrueOrFalse(prev => ({...prev, email: false}));
+        if(info.password.length<6 || info.password===information.password){
+            setTrueOrFalse(prev => ({...prev, password: true}));
+            return;
+        }
 
+        login(info);
+        setInfo(information);
     }
 
 
@@ -27,12 +46,14 @@ function LoginSite() {
                     <label> Email
                         <input type='email' value={info.email}
                                onChange={({target})=>setInfo(prev=>({...prev, email:target.value}))}/>
+                        {trueOrFalse.email? <span style={style}>Podany email jest nieprawidłowy!</span> :''}
                     </label>
                     <label>Hasło
-                        <input type='password' value={info.email}
+                        <input type='password' value={info.password}
                                onChange={({target})=>setInfo(prev=>({...prev, password:target.value }))}/>
+                        {trueOrFalse.password? <span style={style}>Podane hasło jest za krótkie!</span> :''}
                     </label>
-                    {message? <span>Nieprawidłowa nazwa użytkownika lub hasło</span> :''}
+                    {error? <p style={style}>Niepoprawna nazwa użytkownika lub hasło. Spróbuj ponownie lub załóż konto</p>:''}
                 </div>
                 <div className='logRegisterButtons'>
                     <button><NavLink className='navLink' to={'/register'}>Załóż konto</NavLink></button>
@@ -44,4 +65,14 @@ function LoginSite() {
     )
 }
 
-export default LoginSite
+const mapStateToProps = state =>({
+    user: state.log.user,
+    error:state.log.error
+});
+
+const mapDispatchToProps = dispatch =>({
+    login: (info)=>dispatch(operations.login(info))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginSite)

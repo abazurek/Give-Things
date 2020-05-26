@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 import reducer from './reducers'
-import {logger} from "redux-logger/src";
+import {logger} from "redux-logger";
 import {composeWithDevTools} from "redux-devtools-extension";
 
 const middleWare = [thunk, logger];
