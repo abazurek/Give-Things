@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 
-
-
 export default function HelpBox({choosen}) {
     const number =0;
     const [numberSide, setNumberSide]=useState(number);

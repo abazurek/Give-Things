@@ -1,7 +1,7 @@
-const ADD_USER='ADD_USER';
 const SET_USER='SET_USER';
+const CATCH_ERROR='CATCH_ERROR';
 
 export default {
-    ADD_USER,
-    SET_USER
+    SET_USER,
+    CATCH_ERROR
 }

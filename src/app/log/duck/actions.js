@@ -1,9 +1,9 @@
 import types from "./types";
 
-const addUser = user => ({type: types.ADD_USER, user});
 const setUser = user => ({type: types.SET_USER, user});
+const catchError = error=>({type:types.CATCH_ERROR, error});
 
 export default {
-    addUser,
-    setUser
+    setUser,
+    catchError
 }

@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import decoration from "../../assets/Decoration.svg";
 import {NavLink} from "react-router-dom";
 import validateEmail from "../validateEmail";
+import operations from "../../app/log/duck/operations";
+import {connect} from "react-redux";
 
 const information={email:'',password:'',password2:''};
 const style = {
@@ -9,11 +11,11 @@ const style = {
     fontSize: '12px'
 };
 
-function RegisterSite() {
+function RegisterSite({user,error, register}) {
 
     const [info, setInfo]=useState(information);
     const[message,setMessage]=useState({email:false, password:false, password2:false});
-
+    let data={};
     function submitForm(e) {
         e.preventDefault();
 
@@ -30,7 +32,8 @@ function RegisterSite() {
             setMessage(prev=>({...prev,password2: true}));
             return;
         }
-
+        data={"email":info.email, "password":info.password};
+        register(data);
         setInfo(information);
         setMessage({email:false, password:false, password2:false})
     }
@@ -59,6 +62,7 @@ function RegisterSite() {
                         {message.password2? <span style={style}>Hasła muszą być identyczne!</span> : ''}
                     </label>
                 </div>
+                {error? <p style={style}> Wystąpił błąd, spróbuj ponownie później</p> : ''}
                 <div className='logRegisterButtons'>
                     <button><NavLink className='navLink' to={'/login'}>Zaloguj się</NavLink></button>
                     <button className='submit' type='submit'>Załóż konto</button>
@@ -68,5 +72,14 @@ function RegisterSite() {
         </div>
     )
 }
+const mapStateToProps = state =>({
+    user: state.log.name,
+    error:state.log.error
+});
 
-export default RegisterSite
+const mapDispatchToProps = dispatch =>({
+    register: (user)=>dispatch(operations.register(user))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterSite)
