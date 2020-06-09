@@ -31,7 +31,7 @@ function RegisterSite({user,error, register}) {
         if(info.password!==info.password2){
             setMessage(prev=>({...prev,password2: true}));
             return;
-        }
+        }else setMessage(prev=>({...prev, password2: false}));
         data={"email":info.email, "password":info.password};
         register(data);
         setInfo(information);
