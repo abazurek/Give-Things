@@ -6,14 +6,16 @@ import LoginSite from "./components/LogRegisterSites/LogSite";
 import RegisterSite from "./components/LogRegisterSites/RegisterSite";
 import Header from "./components/Home/header/Header";
 import LogOut from "./components/LogOut";
-import GiveThings from "./components/GiveThings";
+import GiveThingsAll from "./components/GiveThingsSite/GiveThingsAll";
+import createBrowserHistory from 'history/createBrowserHistory'
 
 
+export const history = createBrowserHistory();
 
 
 function App() {
   return (
-      <Router>
+      <Router history={history}>
           <Header/>
           <Switch>
               <Route exact path='/'>
@@ -29,7 +31,7 @@ function App() {
                   <LogOut/>
               </Route>
               <Route path='/giveThings'>
-                  <GiveThings/>
+                  <GiveThingsAll/>
               </Route>
           </Switch>
       </Router>

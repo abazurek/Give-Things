@@ -1,6 +1,6 @@
 import actions from "./actions";
-
-const API = 'http://localhost:3000/log';
+import {history} from '../../../App'
+const API = 'http://localhost:3004/log';
 
 const login = ({email, password})=> dispatch =>{
     fetch(`${API}?email=${email}&password=${password}`)
@@ -8,7 +8,7 @@ const login = ({email, password})=> dispatch =>{
         .then(arr => arr[0])
         .then(user=> {
             dispatch(actions.setUser(email))
-
+            history.push('/')
         })
         .catch(dispatch(actions.catchError(true)));
 };

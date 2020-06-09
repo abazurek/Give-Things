@@ -27,13 +27,13 @@
       label{
         display: flex;
         flex-direction: column;
+        margin-bottom: 2em;
         input{
           height: 2.5em;
           width: 15.625em;
           background: none;
           border: none;
           border-bottom: 1px solid $color-border-input;
-          margin-bottom: 2em;
           &:focus{
             outline: none;
           }

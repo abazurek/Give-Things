@@ -1,0 +1,18 @@
+.important-section{
+  background-color: $color-background-important;
+  .container{
+    display: flex;
+    flex-direction: column;
+    span{
+      &:first-child{
+        font-weight: bolder;
+        margin-top: 1.4em;
+        font-size: 2.25em;
+      }
+      &:last-child{
+        font-size: 1.375em;
+        margin-bottom: 2.3em;
+      }
+    }
+  }
+}
