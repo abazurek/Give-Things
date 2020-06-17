@@ -1,25 +1,32 @@
-.stepsSection{
+.stepsSection {
   background-image: url("../../../../assets/Background-Form.jpg");
   padding-top: 2.25em;
-  .num-of-step{
+  min-height: 883px;
+  position: relative;
+
+  .num-of-step {
     font-size: 1.5em;
   }
-  .step-title{
+
+  .step-title {
     font-size: 2.25em;
     font-weight: bolder;
     margin: 1.95em 0 1.11em 0;
   }
-  form{
+
+  form {
     display: flex;
     flex-direction: column;
     margin-bottom: 7.25em;
-    label{
+
+    label {
       margin-bottom: 2.625em;
     }
-    input[type='radio']{
+
+    input[type='radio'] {
       -webkit-appearance: none;
-      -moz-appearance:    none;
-      appearance:         none;
+      -moz-appearance: none;
+      appearance: none;
       width: 40px;
       height: 40px;
       background: none;
@@ -30,7 +37,8 @@
       outline: none;
       position: relative;
       margin-right: 30px;
-      &:checked:after{
+
+      &:checked:after {
         content: '';
         width: 40px;
         height: 40px;
@@ -44,19 +52,109 @@
 
     }
   }
-  button{
-    background: none;
-    border: 0.75px solid $color-font-base;
-    font-weight: lighter;
-    font-size: 1.5em;
-    padding: 1em 2.625em;
-    &:first-of-type{
-      margin-right: 50px;
-    }
-    &:focus{
-      outline: none;
-      border: 0.75px solid $color-font-base; ;
+
+  .buttons-box {
+    position: absolute;
+    bottom: 50px;
+
+    button {
+      background: none;
+      border: 0.75px solid $color-font-base;
+      font-weight: lighter;
+      font-size: 1.5em;
+      padding: 1em 2.625em;
+
+      &:first-of-type {
+        margin-right: 50px;
+      }
+
+      &:focus {
+        outline: none;
+        border: 0.75px solid $color-font-base;;
+      }
     }
   }
+
+  .box{
+    font-size: 1.5em;
+    span {
+      margin-right: 1em;
+    }
+    .custom-select{
+      position: relative;
+      display: inline-block;
+
+      select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        font-size: 1em;
+        color: $color-font-base;
+        width: 300px;
+        height: 49px;
+        background: none;
+        border: $border-base;
+        padding-left: 18px;
+        option {
+          -moz-appearance: none;
+          -webkit-appearance: none;
+
+          &:hover {
+            border: none;
+            background: none;
+            cursor: pointer;
+          }
+
+        }
+      }
+    }
+    h3{
+      font-weight: bolder;
+      margin-bottom: 0.83em;
+    }
+    .box-help{
+      max-width: 700px;
+      margin-bottom: 1em;
+      h3{
+        margin-top: 2.1em;
+      }
+      input[type='checkbox']{
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+        border: $border-base;
+        padding: 11px 26px;
+        margin-right: 1em;
+        margin-bottom: 1em;
+        &:before{
+          font-size: 24px;
+
+        }
+        &:first-of-type:before{
+          content: 'dzieciom';
+        }
+        &:nth-of-type(2):before{
+          content: 'samotnym matkom';
+        }
+        &:nth-of-type(3):before{
+          content: 'bezdomnym';
+        }
+        &:nth-of-type(4):before{
+          content: 'niepełnosprawnym';
+        }
+        &:nth-of-type(5):before{
+          content: 'osobom starszym';
+        }
+        &:checked{
+          border: $border-base;
+          background-color:$color-input-checked ;
+        }
+      }
+    }
+
+
+  }
+
+
+
 
 }
