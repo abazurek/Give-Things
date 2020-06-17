@@ -14,8 +14,10 @@ export default function StepsSection(){
                 {count===2? <SecondStep title='Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:'/>:''}
                 {count===3? <ThirdStep title='Lokalizacja:'/>:''}
                 {count===4? <FourthStep title='Podaj adres oraz termin odbioru rzecz przez kuriera'/>:''}
-                {count!==1? <button onClick={()=>setCount(prev=>prev-1)}>Wstecz</button>:""}
-                {count!==4?<button onClick={()=>setCount(prev=>prev+1)}>Dalej</button>:""}
+                <div className='buttons-box'>
+                    {count!==1? <button onClick={()=>setCount(prev=>prev-1)}>Wstecz</button>:""}
+                    {count!==4?<button onClick={()=>setCount(prev=>prev+1)}>Dalej</button>:""}
+                </div>
             </div>
 
         </section>
