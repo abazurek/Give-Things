@@ -4,6 +4,12 @@
   min-height: 883px;
   position: relative;
 
+  input, textarea{
+    color: $color-font-base;
+    background: none;
+    border: $border-base;
+
+  }
   .num-of-step {
     font-size: 1.5em;
   }
@@ -117,7 +123,7 @@
       h3{
         margin-top: 2.1em;
       }
-      input[type='checkbox']{
+      input[type='radio']{
         -webkit-appearance: none;
         -moz-appearance:    none;
         appearance:         none;
@@ -150,11 +156,39 @@
         }
       }
     }
-
-
+    .organization-box{
+      display: inline-block;
+      input{
+        width: 100%;
+        font-size: 1em;
+        padding:0 0.5em;
+        height: 40px;
+      }
+    }
   }
-
-
-
+  .fourth-forms{
+    display: flex;
+    form{
+      label{
+        width: 392px;
+        display: flex;
+        justify-content: space-between;
+        span{
+          max-width: 114px;
+        }
+        input, textarea{
+          height: 40px;
+          width: 256px;
+        }
+        textarea{
+          width: 256px;
+          height: 120px;
+        }
+      }
+      &:first-of-type{
+        margin-right: 152px;
+      }
+    }
+  }
 
 }

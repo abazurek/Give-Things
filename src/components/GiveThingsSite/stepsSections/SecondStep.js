@@ -1,6 +1,8 @@
 import React from "react";
+import {connect} from 'react-redux'
+import actions from "../../../app/giveForms/duck/actions";
 
-export default function SecondStep({title}) {
+const SecondStep = ({title, bags}) =>{
 
 
     return (
@@ -9,7 +11,7 @@ export default function SecondStep({title}) {
             <div className='box'>
                 <span>Liczba 60l worków</span>
                 <div className='custom-select'>
-                    <select >
+                    <select onChange={({target})=>(bags(target.value))}>
                         <option selected hidden value>- wybierz -</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
@@ -23,3 +25,9 @@ export default function SecondStep({title}) {
         </div>
     )
 }
+
+const mapDispatchToProps = dispatch => ({
+    bags: value => dispatch(actions.setBags(value))
+})
+
+export default connect(null, mapDispatchToProps)(SecondStep)
