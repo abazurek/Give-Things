@@ -1,6 +1,8 @@
 import React from "react";
+import {connect} from "react-redux";
+import actions from "../../../app/giveForms/duck/actions";
 
-export default function FourthStep({title}) {
+const FourthStep =({title, street, city, postCode, phone, date, time, message}) =>{
 
     return(
         <div>
@@ -9,31 +11,44 @@ export default function FourthStep({title}) {
                 <form>
                     <h3>Adres obioru</h3>
                     <label> <span>Ulica</span>
-                        <input type='text'/>
+                        <input type='text' onChange={({target})=>street(target.value)}/>
                     </label>
                     <label> <span>Miasto</span>
-                        <input type='text'/>
+                        <input type='text' onChange={({target})=>city(target.value)}/>
                     </label>
                     <label> <span>Kod pocztowy</span>
-                        <input type='number'/>
+                        <input type='number' onChange={({target})=>postCode(target.value)}/>
                     </label>
                     <label> <span>Numer telefonu</span>
-                        <input type='number'/>
+                        <input type='number' onChange={({target})=>phone(target.value)}/>
                     </label>
                 </form>
                 <form>
                     <h3>Termin odbioru</h3>
                     <label> <span>Data</span>
-                        <input type='date'/>
+                        <input type='date' onChange={({target})=>date(target.value)}/>
                     </label>
                     <label> <span>Godzina</span>
-                        <input type='time'/>
+                        <input type='time' onChange={({target})=>time(target.value)}/>
                     </label>
                     <label> <span>Uwagi dla kuriera</span>
-                        <textarea/>
+                        <textarea onChange={({target})=>message(target.value)}/>
                     </label>
                 </form>
             </div>
         </div>
     )
 }
+
+const mapDispatchToProps = dispatch =>({
+    street: street => dispatch(actions.setStreet(street)),
+    city: city => dispatch(actions.setCity(city)),
+    postCode: code => dispatch(actions.setPost(code)),
+    phone: phone => dispatch(actions.setPhone(phone)),
+    date: date => dispatch(actions.setDate(date)),
+    time: hour => dispatch(actions.setHour(hour)),
+    message: note => dispatch(actions.setMessage(note))
+
+})
+
+export default connect(null, mapDispatchToProps)(FourthStep);
