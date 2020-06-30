@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import actions from "../../../app/giveForms/duck/actions";
 
-const FourthStep =({title, street, city, postCode, phone, date, time, message}) =>{
+const FourthStep =({title,street, city,postCode,phone, date, time, message, setStreet, setCity, setPostCode, setPhone, setDate, setTime, setMessage}) =>{
+
+    useEffect(function () {
+
+    },[])
 
     return(
         <div>
@@ -11,28 +15,28 @@ const FourthStep =({title, street, city, postCode, phone, date, time, message}) 
                 <form>
                     <h3>Adres obioru</h3>
                     <label> <span>Ulica</span>
-                        <input type='text' onChange={({target})=>street(target.value)}/>
+                        <input  type='text' value={street} onChange={({target})=>setStreet(target.value)}/>
                     </label>
                     <label> <span>Miasto</span>
-                        <input type='text' onChange={({target})=>city(target.value)}/>
+                        <input type='text' value={city} onChange={({target})=>setCity(target.value)}/>
                     </label>
                     <label> <span>Kod pocztowy</span>
-                        <input type='number' onChange={({target})=>postCode(target.value)}/>
+                        <input type='number' value={postCode} onChange={({target})=>setPostCode(target.value)}/>
                     </label>
                     <label> <span>Numer telefonu</span>
-                        <input type='number' onChange={({target})=>phone(target.value)}/>
+                        <input  type='number' value={phone} onChange={({target})=>setPhone(target.value)}/>
                     </label>
                 </form>
                 <form>
                     <h3>Termin odbioru</h3>
                     <label> <span>Data</span>
-                        <input type='date' onChange={({target})=>date(target.value)}/>
+                        <input type='date' value={date} onChange={({target})=>setDate(target.value)}/>
                     </label>
                     <label> <span>Godzina</span>
-                        <input type='time' onChange={({target})=>time(target.value)}/>
+                        <input type='time' value={time} onChange={({target})=>setTime(target.value)}/>
                     </label>
                     <label> <span>Uwagi dla kuriera</span>
-                        <textarea onChange={({target})=>message(target.value)}/>
+                        <textarea value={message} onChange={({target})=>setMessage(target.value)}/>
                     </label>
                 </form>
             </div>
@@ -40,15 +44,25 @@ const FourthStep =({title, street, city, postCode, phone, date, time, message}) 
     )
 }
 
+const mapStateToProps = state =>({
+    street: state.giveForms.street,
+    city: state.giveForms.city,
+    postCode: state.giveForms.postCode,
+    phone: state.giveForms.phone,
+    date: state.giveForms.date,
+    time: state.giveForms.hour,
+    message: state.giveForms.message
+})
+
 const mapDispatchToProps = dispatch =>({
-    street: street => dispatch(actions.setStreet(street)),
-    city: city => dispatch(actions.setCity(city)),
-    postCode: code => dispatch(actions.setPost(code)),
-    phone: phone => dispatch(actions.setPhone(phone)),
-    date: date => dispatch(actions.setDate(date)),
-    time: hour => dispatch(actions.setHour(hour)),
-    message: note => dispatch(actions.setMessage(note))
+    setStreet: setStreet => dispatch(actions.setStreet(setStreet)),
+    setCity: setCity => dispatch(actions.setCity(setCity)),
+    setPostCode: postCode => dispatch(actions.setPost(postCode)),
+    setPhone: setPhone => dispatch(actions.setPhone(setPhone)),
+    setDate: setDate => dispatch(actions.setDate(setDate)),
+    setTime: hour => dispatch(actions.setHour(hour)),
+    setMessage: note => dispatch(actions.setMessage(note))
 
 })
 
-export default connect(null, mapDispatchToProps)(FourthStep);
+export default connect(mapStateToProps, mapDispatchToProps)(FourthStep);

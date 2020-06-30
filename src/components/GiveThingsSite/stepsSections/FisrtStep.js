@@ -4,77 +4,67 @@ import actions from "../../../app/giveForms/duck/actions";
 
 
 const texts = {
-    first:'ubrania, które nadają się do ponownego użycia',
-    second:'ubrania do wyrzucenia',
-    third:'zabawki',
-    fourth:'książki',
-    fifth:'inne'
+    first: 'ubrania, które nadają się do ponownego użycia',
+    second: 'ubrania do wyrzucenia',
+    third: 'zabawki',
+    fourth: 'książki',
+    fifth: 'inne'
 }
 
-// const items = document.querySelectorAll('input[name="radio"]');
-// if(items){
-//     console.log(items);
-//     items.forEach(function (item) {
-//         if(item.checked){
-//             console.log(item);
-//             localStorage.setItem('thing', item.value)
-//         }
-//     })
-// }
-// console.log(localStorage.thing);
-
-const FirstStep = ({title,thing, setThing}) => {
+const FirstStep = ({title, thing, setThing}) => {
 
 
     useEffect(function () {
-        const items = document.querySelectorAll('input[name="radio"]:checked');
+        const items = document.querySelectorAll('input[name="radio"]');
 
         items.forEach(function (item) {
-            if(item.checked===true){
+            if (item.checked) {
                 localStorage.setItem('thing', item.value);
             }
         })
 
-        // if(thing!==''){
-        //     localStorage.setItem('thing',thing);
-        //     console.log(localStorage.thing)
-        // }
-
         const check = localStorage.getItem('thing');
-        if(check ){
-            console.log(check)
-            items.forEach(input=>input.value===check? input.checked===true: '');
 
-        }
-    },[])
+        items.forEach(function (item) {
+            if (item.value === check) {
+              item.setAttribute('checked','checked')
+            }
+        });
+
+    }, [thing])
 
 
     function changeChecked({target}) {
         setThing(target.value);
     }
 
-    return(
+    return (
         <div>
             <h2 className='step-title'>{title}</h2>
             <form>
                 <label>
-                    <input name='radio' type='radio' value={texts.first} onChange={({target})=>changeChecked({target})}/>
+                    <input name='radio' type='radio' value={texts.first}
+                           onChange={({target}) => changeChecked({target})}/>
                     <span>{texts.first}</span>
                 </label>
                 <label>
-                    <input  name='radio' type='radio' value={texts.second} onChange={({target})=>changeChecked({target})}/>
+                    <input name='radio' type='radio' value={texts.second}
+                           onChange={({target}) => changeChecked({target})}/>
                     <span>{texts.second}</span>
                 </label>
                 <label>
-                    <input name='radio' type='radio' value={texts.third} onChange={({target})=>changeChecked({target})}/>
+                    <input name='radio' type='radio' value={texts.third}
+                           onChange={({target}) => changeChecked({target})}/>
                     <span>{texts.third}</span>
                 </label>
                 <label>
-                    <input  name='radio' type='radio' value={texts.fourth} onChange={({target})=>changeChecked({target})}/>
+                    <input name='radio' type='radio' value={texts.fourth}
+                           onChange={({target}) => changeChecked({target})}/>
                     <span>{texts.fourth}</span>
                 </label>
                 <label>
-                    <input name='radio' type='radio'  value={texts.fifth} onChange={({target})=>changeChecked({target})}/>
+                    <input name='radio' type='radio' value={texts.fifth}
+                           onChange={({target}) => changeChecked({target})}/>
                     <span>{texts.fifth}</span>
                 </label>
 
@@ -82,7 +72,7 @@ const FirstStep = ({title,thing, setThing}) => {
         </div>
     )
 }
-const mapStateToProps = state =>({
+const mapStateToProps = state => ({
     thing: state.giveForms.thing
 })
 
