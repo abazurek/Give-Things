@@ -13,7 +13,7 @@ import actions from "../../../app/giveForms/duck/actions";
     return(
         <section className='stepsSection'>
             <div className='container'>
-                <span className='num-of-step'>Krok {count}/4</span>
+                <span className='num-of-step'>Krok {count}/5</span>
                 {count===1? <FirstStep title='Zaznacz co chcesz oddać:'/>:''}
                 {count===2? <SecondStep title='Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:'/>:''}
                 {count===3? <ThirdStep title='Lokalizacja:'/>:''}

@@ -1,9 +1,22 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {connect} from 'react-redux'
 import actions from "../../../app/giveForms/duck/actions";
 
-const SecondStep = ({title, bags}) =>{
 
+const SecondStep = ({title,bags, setBags}) =>{
+
+    useEffect(function () {
+        const options = document.querySelectorAll('option');
+        localStorage.setItem('bags',bags)
+
+        const chosenBags = localStorage.getItem('bags');
+
+        options.forEach(function (item) {
+            if(item.value === chosenBags){
+               item.setAttribute('selected','true')
+            }
+        })
+    },[bags])
 
     return (
         <div>
@@ -11,8 +24,8 @@ const SecondStep = ({title, bags}) =>{
             <div className='box'>
                 <span>Liczba 60l worków</span>
                 <div className='custom-select'>
-                    <select onChange={({target})=>(bags(target.value))}>
-                        <option selected hidden value>- wybierz -</option>
+                    <select  onChange={({target})=>(setBags(target.value))}>
+                        <option hidden >- wybierz -</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -25,9 +38,12 @@ const SecondStep = ({title, bags}) =>{
         </div>
     )
 }
-
-const mapDispatchToProps = dispatch => ({
-    bags: value => dispatch(actions.setBags(value))
+const mapStateToProps = state =>({
+    bags: state.giveForms.bags
 })
 
-export default connect(null, mapDispatchToProps)(SecondStep)
+const mapDispatchToProps = dispatch => ({
+    setBags: value => dispatch(actions.setBags(value))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SecondStep);

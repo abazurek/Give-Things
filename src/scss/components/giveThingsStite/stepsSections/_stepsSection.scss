@@ -4,6 +4,9 @@
   min-height: 883px;
   position: relative;
 
+  .important{
+    font-weight: bolder;
+  }
   input, textarea{
     color: $color-font-base;
     background: none;
@@ -123,7 +126,7 @@
       h3{
         margin-top: 2.1em;
       }
-      input[type='radio']{
+      input[type='checkbox']{
         -webkit-appearance: none;
         -moz-appearance:    none;
         appearance:         none;
