@@ -3,7 +3,8 @@ import types from "./types";
 const setThing = thing =>({type:types.SET_THING, thing});
 const setBags = bags =>({type:types.SET_BAGS, bags});
 const setLocalization = localization =>({type:types.SET_LOCALIZATION, localization});
-const setWho = who =>({type:types.SET_WHO, who});
+const addWho = who =>({type:types.ADD_WHO, who});
+const removeWho = who =>({type:types.REMOVE_WHO, who});
 const setOrganization = organization =>({type:types.SET_ORGANIZATION, organization});
 const setStreet = street => ({type: types.SET_STREET, street});
 const setCity = city => ({type: types.SET_CITY, city});
@@ -18,7 +19,8 @@ export default {
     setThing,
     setBags,
     setLocalization,
-    setWho,
+    addWho,
+    removeWho,
     setOrganization,
     setStreet,
     setCity,

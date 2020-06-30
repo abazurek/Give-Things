@@ -14,7 +14,7 @@ const  FifthStep = ({info}) => {
             <div>
                 <h3>Oddajesz:</h3>
                 <div>
-                    <img src={shirt} alt='shirt-icon' /> <span>{info.bags}; {info.thing}; {info.who}</span>
+                    <img src={shirt} alt='shirt-icon' /> <span><span className='important'>Ilość worków: </span>{info.bags}, <span className='important'>co:</span> {info.thing}, <span className='important'>dla kogo:</span> {info.who.map(el=>(<span>{el}, </span>))}</span>
                 </div>
                 <div>
                     <img src={localization} alt='localization-icon' />

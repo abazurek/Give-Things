@@ -4,9 +4,9 @@ const clear = {
     thing: '',
     bags: '',
     localization: '',
-    who: '',
+    who: [],
     organization: '',
-    street: 'blbla',
+    street: '',
     city: '',
     postCode: '',
     phone: '',
@@ -31,9 +31,13 @@ function giveFormsReducer(state = initialState, action) {
             return {
                 ...state, localization: action.localization
             };
-        case types.SET_WHO:
+        case types.ADD_WHO:
             return {
-                ...state, who: action.who
+                ...state, who: [...state.who, action.who]
+            };
+        case types.REMOVE_WHO:
+            return {
+                who: state.who.filter((item)=>item!==action.who)
             };
         case types.SET_ORGANIZATION:
             return {

@@ -3,7 +3,18 @@ import {connect} from 'react-redux';
 import actions from "../../../app/giveForms/duck/actions";
 
 
-const ThirdStep = ({title, localization,who, organization})=> {
+const ThirdStep = ({title, localization,who, whoAdd,whoRemove, organization})=> {
+
+
+    function clickedCheckbox({target}) {
+       if( who.includes(target.value)){
+           whoRemove(target.value);
+           return
+       }
+
+       return whoAdd(target.value)
+    }
+
     return (
         <div>
             <h2 className='step-title'>{title}</h2>
@@ -20,11 +31,11 @@ const ThirdStep = ({title, localization,who, organization})=> {
                 </div>
                 <div className='box-help'>
                     <h3>Komu chesz pomóc?</h3>
-                    <input type='radio'  name='one' value='dzieciom' onChange={({target})=>who(target.value)}/>
-                    <input type='radio'  name='one' value='samotnym matkom' onChange={({target})=>who(target.value)}/>
-                    <input type='radio'  name='one' value='bezdomnym' onChange={({target})=>who(target.value)}/>
-                    <input type='radio'  name='one' value='niepełnosprawnym' onChange={({target})=>who(target.value)}/>
-                    <input type='radio'  name='one' value='osobom starszym' onChange={({target})=>who(target.value)}/>
+                    <input type='checkbox'  name='one' value='dzieciom' onClick={({target})=>clickedCheckbox({target})}/>
+                    <input type='checkbox'  name='one' value='samotnym matkom' onClick={({target})=>clickedCheckbox({target})}/>
+                    <input type='checkbox'  name='one' value='bezdomnym' onClick={({target})=>clickedCheckbox({target})}/>
+                    <input type='checkbox'  name='one' value='niepełnosprawnym' onClick={({target})=>clickedCheckbox({target})}/>
+                    <input type='checkbox'  name='one' value='osobom starszym' onClick={({target})=>clickedCheckbox({target})}/>
                 </div>
                 <div className='organization-box'>
                     <h3> Wpisz nazwę konkretnej organizacji (opcjonalnie)</h3>
@@ -37,11 +48,16 @@ const ThirdStep = ({title, localization,who, organization})=> {
     )
 }
 
+const mapStateToProps = state =>({
+    who: state.giveForms.who
+})
+
 const mapDispatchToProps = dispatch => ({
     localization: value=> dispatch(actions.setLocalization(value)),
-    who: value => dispatch(actions.setWho(value)),
+    whoAdd: value => dispatch(actions.addWho(value)),
+    whoRemove: value => dispatch(actions.removeWho(value)),
     organization: value=> dispatch(actions.setOrganization(value))
 })
 
 
-export default connect(null, mapDispatchToProps)(ThirdStep);
+export default connect(mapStateToProps, mapDispatchToProps)(ThirdStep);
