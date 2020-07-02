@@ -4,34 +4,34 @@ import { connect } from 'react-redux'
 import actions from "../../../app/giveForms/duck/actions";
 
 import shirt from './../../../assets/Icon-1.svg';
-import localization from './../../../assets/Icon-2.svg';
+import localization from './../../../assets/Icon-4.svg';
 
 const  FifthStep = ({info}) => {
 
     return(
-        <div>
-            <h2>Podsumowanie Twojej darowizny</h2>
-            <div>
+        <div className='fifthStep'>
+            <h1>Podsumowanie Twojej darowizny</h1>
+            <div className='box '>
                 <h3>Oddajesz:</h3>
-                <div>
-                    <img src={shirt} alt='shirt-icon' /> <span><span className='important'>Ilość worków: </span>{info.bags}, <span className='important'>co:</span> {info.thing}, <span className='important'>dla kogo:</span> {info.who.map(el=>(<span>{el}, </span>))}</span>
+                <div className='summaryLine'>
+                    <img src={shirt} alt='shirt-icon' /> <span>{info.bags} worki, {info.thing}{info.who.map(el=>(<span>, {el} </span>))}</span>
                 </div>
-                <div>
-                    <img src={localization} alt='localization-icon' />
+                <div className='summaryLine'>
+                    <img src={localization} alt='localization-icon' /> <span><span className='important'>dla lokalizacji:</span>{info.localization}</span>
                 </div>
-                <div>
+                <div className='summaryForms'>
                     <div>
                         <h3>Adres odbioru:</h3>
-                        <p>Ulica: <span>{info.street} </span> </p>
-                        <p>Miasto: <span>{info.city} </span></p>
-                        <p>Kod pocztowy: <span>{info.postCode} </span></p>
-                        <p>Numer telefonu: <span> {info.phone}</span></p>
+                        <p><span>Ulica:</span> <span>{info.street} </span> </p>
+                        <p><span>Miasto:</span> <span>{info.city} </span></p>
+                        <p><span>Kod pocztowy:</span> <span>{info.postCode} </span></p>
+                        <p><span>Numer telefonu:</span> <span> {info.phone}</span></p>
                     </div>
                     <div>
                         <h3>Termin odbioru:</h3>
-                        <p>Data: <span>{info.date} </span> </p>
-                        <p>Godzina: <span>{info.hour} </span></p>
-                        <p>Uwagi dla kuriera: <span>{info.message}</span></p>
+                        <p><span>Data:</span> <span>{info.date} </span> </p>
+                        <p><span>Godzina:</span> <span>{info.hour} </span></p>
+                        <p><span>Uwagi dla kuriera:</span> <span>{info.message}</span></p>
                     </div>
                 </div>
             </div>
