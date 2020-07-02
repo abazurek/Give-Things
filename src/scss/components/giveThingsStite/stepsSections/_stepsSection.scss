@@ -1,18 +1,19 @@
+
 .stepsSection {
   background-image: url("../../../../assets/Background-Form.jpg");
   padding-top: 2.25em;
   min-height: 883px;
   position: relative;
 
-  .important{
-    font-weight: bolder;
-  }
-  input, textarea{
+
+
+  input, textarea {
     color: $color-font-base;
     background: none;
     border: $border-base;
 
   }
+
   .num-of-step {
     font-size: 1.5em;
   }
@@ -84,12 +85,17 @@
     }
   }
 
-  .box{
+  .box {
     font-size: 1.5em;
+    h3 {
+      font-weight: bolder;
+      margin-bottom: 0.83em;
+    }
     span {
       margin-right: 1em;
     }
-    .custom-select{
+
+    .custom-select {
       position: relative;
       display: inline-block;
 
@@ -103,6 +109,7 @@
         background: none;
         border: $border-base;
         padding-left: 18px;
+
         option {
           -moz-appearance: none;
           -webkit-appearance: none;
@@ -116,80 +123,131 @@
         }
       }
     }
-    h3{
-      font-weight: bolder;
-      margin-bottom: 0.83em;
-    }
-    .box-help{
+
+
+    .box-help {
       max-width: 700px;
       margin-bottom: 1em;
-      h3{
+
+      h3 {
         margin-top: 2.1em;
       }
-      input[type='checkbox']{
+
+      input[type='checkbox'] {
         -webkit-appearance: none;
-        -moz-appearance:    none;
-        appearance:         none;
+        -moz-appearance: none;
+        appearance: none;
         border: $border-base;
         padding: 11px 26px;
         margin-right: 1em;
         margin-bottom: 1em;
-        &:before{
+
+        &:before {
           font-size: 24px;
 
         }
-        &:first-of-type:before{
+
+        &:first-of-type:before {
           content: 'dzieciom';
         }
-        &:nth-of-type(2):before{
+
+        &:nth-of-type(2):before {
           content: 'samotnym matkom';
         }
-        &:nth-of-type(3):before{
+
+        &:nth-of-type(3):before {
           content: 'bezdomnym';
         }
-        &:nth-of-type(4):before{
+
+        &:nth-of-type(4):before {
           content: 'niepełnosprawnym';
         }
-        &:nth-of-type(5):before{
+
+        &:nth-of-type(5):before {
           content: 'osobom starszym';
         }
-        &:checked{
+
+        &:checked {
           border: $border-base;
-          background-color:$color-input-checked ;
+          background-color: $color-input-checked;
         }
       }
     }
-    .organization-box{
+
+    .organization-box {
       display: inline-block;
-      input{
+
+      input {
         width: 100%;
         font-size: 1em;
-        padding:0 0.5em;
+        padding: 0 0.5em;
         height: 40px;
       }
     }
   }
-  .fourth-forms{
+
+  .fourth-forms {
     display: flex;
-    form{
-      label{
+
+    form {
+      label {
         width: 392px;
         display: flex;
         justify-content: space-between;
-        span{
+
+        span {
           max-width: 114px;
         }
-        input, textarea{
+
+        input, textarea {
           height: 40px;
           width: 256px;
         }
-        textarea{
+
+        textarea {
           width: 256px;
           height: 120px;
         }
       }
-      &:first-of-type{
+
+      &:first-of-type {
         margin-right: 152px;
+      }
+    }
+  }
+
+  .fifthStep{
+    h1 {
+      font-size: 2.25em;
+      margin-bottom: 1.25em;
+      font-weight: bolder;
+    }
+    span{
+      margin: 0;
+    }
+    .summaryLine{
+      margin-bottom: 0.83em;
+      display: flex;
+      align-items: center;
+      img{
+        margin-right: 0.8em;
+      }
+    }
+    .summaryForms{
+      margin-top: 1.25em;
+      display: flex;
+      justify-content: space-between;
+      max-width: 800px;
+
+      p{
+        font-weight: lighter;
+        line-height: 1.33em;
+        margin-bottom: 0.83em;
+        span{
+          &:first-child{
+            max-width: 101px;
+          }
+        }
       }
     }
   }

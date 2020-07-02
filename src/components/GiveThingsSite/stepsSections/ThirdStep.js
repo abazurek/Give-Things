@@ -65,7 +65,7 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
                     <input type='checkbox' name='one' value='osobom starszym'
                            onClick={({target}) => clickedCheckbox({target})}/>
                 </div>
-                <div className='setOrganization-box'>
+                <div className='organization-box'>
                     <h3> Wpisz nazwę konkretnej organizacji (opcjonalnie)</h3>
                     <input type='text' value={organization} onChange={({target}) => setOrganization(target.value)}/>
                 </div>
