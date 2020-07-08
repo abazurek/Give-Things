@@ -239,15 +239,17 @@
       justify-content: space-between;
       max-width: 800px;
 
-      p{
-        font-weight: lighter;
-        line-height: 1.33em;
-        margin-bottom: 0.83em;
-        span{
-          &:first-child{
-            max-width: 101px;
+      .summarySingleBox{
+        div{
+          font-weight: lighter;
+          line-height: 1.33em;
+          margin-bottom: 0.83em;
+          div{
+            display: inline-block;
+            width: 136px;
           }
         }
+
       }
     }
   }

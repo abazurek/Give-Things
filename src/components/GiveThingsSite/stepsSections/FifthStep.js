@@ -20,18 +20,18 @@ const  FifthStep = ({info}) => {
                     <img src={localization} alt='localization-icon' /> <span><span className='important'>dla lokalizacji:</span>{info.localization}</span>
                 </div>
                 <div className='summaryForms'>
-                    <div>
+                    <div className='summarySingleBox'>
                         <h3>Adres odbioru:</h3>
-                        <p><span>Ulica:</span> <span>{info.street} </span> </p>
-                        <p><span>Miasto:</span> <span>{info.city} </span></p>
-                        <p><span>Kod pocztowy:</span> <span>{info.postCode} </span></p>
-                        <p><span>Numer telefonu:</span> <span> {info.phone}</span></p>
+                        <div><div><span>Ulica:</span></div> <span>{info.street} </span> </div>
+                        <div><div><span>Miasto:</span></div> <span>{info.city} </span></div>
+                        <div><div><span>Kod pocztowy:</span></div> <span>{info.postCode} </span></div>
+                        <div><div><span>Numer telefonu:</span></div> <span> {info.phone}</span></div>
                     </div>
-                    <div>
+                    <div className='summarySingleBox'>
                         <h3>Termin odbioru:</h3>
-                        <p><span>Data:</span> <span>{info.date} </span> </p>
-                        <p><span>Godzina:</span> <span>{info.hour} </span></p>
-                        <p><span>Uwagi dla kuriera:</span> <span>{info.message}</span></p>
+                        <div><div><span>Data:</span></div> <span>{info.date} </span> </div>
+                        <div><div><span>Godzina:</span></div> <span>{info.hour} </span></div>
+                        <div><div><span>Uwagi dla kuriera:</span></div> <span>{info.message}</span></div>
                     </div>
                 </div>
             </div>
