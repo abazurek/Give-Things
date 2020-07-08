@@ -1,7 +1,6 @@
 import React from "react";
 
 import { connect } from 'react-redux'
-import actions from "../../../app/giveForms/duck/actions";
 
 import shirt from './../../../assets/Icon-1.svg';
 import localization from './../../../assets/Icon-4.svg';
@@ -22,16 +21,16 @@ const  FifthStep = ({info}) => {
                 <div className='summaryForms'>
                     <div className='summarySingleBox'>
                         <h3>Adres odbioru:</h3>
-                        <div><div><span>Ulica:</span></div> <span>{info.street} </span> </div>
-                        <div><div><span>Miasto:</span></div> <span>{info.city} </span></div>
-                        <div><div><span>Kod pocztowy:</span></div> <span>{info.postCode} </span></div>
-                        <div><div><span>Numer telefonu:</span></div> <span> {info.phone}</span></div>
+                        <div><p>Ulica:</p> <p>{info.street} </p> </div>
+                        <div><p>Miasto:</p> <p>{info.city} </p></div>
+                        <div><p>Kod pocztowy:</p> <p>{info.postCode} </p></div>
+                        <div><p>Numer telefonu:</p> <p> {info.phone}</p></div>
                     </div>
                     <div className='summarySingleBox'>
                         <h3>Termin odbioru:</h3>
-                        <div><div><span>Data:</span></div> <span>{info.date} </span> </div>
-                        <div><div><span>Godzina:</span></div> <span>{info.hour} </span></div>
-                        <div><div><span>Uwagi dla kuriera:</span></div> <span>{info.message}</span></div>
+                        <div><p>Data:</p> <p>{info.date} </p> </div>
+                        <div><p>Godzina:</p> <p>{info.hour} </p></div>
+                        <div><p>Uwagi dla kuriera:</p> <p>{info.message}</p></div>
                     </div>
                 </div>
             </div>
