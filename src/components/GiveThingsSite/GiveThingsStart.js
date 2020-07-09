@@ -12,7 +12,7 @@ function GiveThingsStart() {
                         <img src={decoration} alt='decoration icon'/>
                     </div>
                     <div className='four-steps'>
-                        <h3>Wystarczą 4 proste kroki:</h3>
+                       <h3>Wystarczą 4 proste kroki:</h3>
                         <div className='steps-box'>
                             <StepBox number='1' text='Wybierz rzeczy'/>
                             <StepBox number='2' text='Spakuj je w worki'/>

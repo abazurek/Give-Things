@@ -4,7 +4,7 @@
   padding-top: 2.25em;
   min-height: 883px;
   position: relative;
-
+  height: 919px;
 
   input, textarea {
     color: $color-font-base;
@@ -258,17 +258,23 @@
   .thanksBox{
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    p{
-      text-align: center;
-      font-size: 2.5em;
-      line-height: 1.25em;
-      letter-spacing: -0.8px;
-    }
-    img{
-      margin-top: 1.5625em;
+    justify-content: space-around;
+    div{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 630px;
+      font-weight: lighter;
+      p{
+        text-align: center;
+        font-size: 2.5em;
+        line-height: 1.25em;
+        letter-spacing: -0.8px;
+      }
+      img{
+        margin-top: 1.5625em;
+      }
     }
   }
 }
