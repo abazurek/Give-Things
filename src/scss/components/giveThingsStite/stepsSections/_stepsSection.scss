@@ -6,7 +6,6 @@
   position: relative;
 
 
-
   input, textarea {
     color: $color-font-base;
     background: none;
@@ -239,17 +238,37 @@
       justify-content: space-between;
       max-width: 800px;
 
-      p{
-        font-weight: lighter;
-        line-height: 1.33em;
-        margin-bottom: 0.83em;
-        span{
-          &:first-child{
-            max-width: 101px;
+      .summarySingleBox{
+        div{
+          font-weight: lighter;
+          line-height: 1.33em;
+          margin-bottom: 0.83em;
+          display: flex;
+          align-items: center;
+          p{
+            display: inline-block;
+            width: 136px;
           }
         }
+
       }
     }
   }
 
+  .thanksBox{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p{
+      text-align: center;
+      font-size: 2.5em;
+      line-height: 1.25em;
+      letter-spacing: -0.8px;
+    }
+    img{
+      margin-top: 1.5625em;
+    }
+  }
 }
