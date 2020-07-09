@@ -5,10 +5,6 @@
   min-height: 883px;
   position: relative;
 
-  .container{
-    height: 100%;
-  }
-
 
   input, textarea {
     color: $color-font-base;
@@ -259,9 +255,6 @@
     }
   }
 
-  .thanksSection{
-    height: 100%;
-  }
   .thanksBox{
     height: 100%;
     display: flex;

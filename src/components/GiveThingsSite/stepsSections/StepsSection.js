@@ -10,6 +10,7 @@ import FifthStep from "./FifthStep";
 import ThanksStep from "./ThanksStep";
 
 import actions from "../../../app/giveForms/duck/actions";
+import {NavLink} from "react-router-dom";
 
 const titles = {
     first: 'Zaznacz co chcesz oddać:',
@@ -28,10 +29,10 @@ const informs = {
 
 const style = {
     color: "red",
-    marginBottom:'15px'
+    marginBottom: '15px'
 }
 
-const StepsSection = ({thing, bags,localization,who,street, city, postCode, phone, date, hour, clear}) => {
+const StepsSection = ({thing, bags, localization, who, street, city, postCode, phone, date, hour, clear}) => {
     const [count, setCount] = useState(1);
     const [message, setMessage] = useState('');
     const [isComponent, setIsComponent] = useState(true);
@@ -40,7 +41,7 @@ const StepsSection = ({thing, bags,localization,who,street, city, postCode, phon
 
     switch (count) {
         case 1:
-            component = (<FirstStep title={titles.first} />)
+            component = (<FirstStep title={titles.first}/>)
             information = informs.first
             break;
         case 2:
@@ -67,19 +68,19 @@ const StepsSection = ({thing, bags,localization,who,street, city, postCode, phon
 
     function onClick(e) {
         e.preventDefault();
-        if(count ===1 && thing===''){
+        if (count === 1 && thing === '') {
             setMessage('Musisz zaznaczyć jedno pole aby przejść dalej')
             return;
-        }else if(count ===2 && bags===''){
+        } else if (count === 2 && bags === '') {
             setMessage('Musisz wybrać ilość worków aby przejść dalej')
             return;
-        } else if(count===3 && localization==='' || count===3 && who.length===0){
+        } else if (count === 3 && localization === '' || count === 3 && who.length === 0) {
             setMessage("Musisz wybrać lokalizację i co najmniej jedną z opcji komu chcesz pomóc aby przejść dalej")
             return;
-        } else if(count===4 &&(street==='' || city==='' || postCode===''|| phone==='' || date==='' || hour ==='')){
+        } else if (count === 4 && (street === '' || city === '' || postCode === '' || phone === '' || date === '' || hour === '')) {
             setMessage("Musisz wypełnić formularz aby przejśc dalej")
             return;
-        }else setMessage('')
+        } else setMessage('')
         setCount(prev => prev + 1)
 
     }
@@ -88,10 +89,10 @@ const StepsSection = ({thing, bags,localization,who,street, city, postCode, phon
         setCount(prev => prev - 1)
     }
 
-    const submitInformation =(e) =>{
+    const submitInformation = (e) => {
         e.preventDefault();
         localStorage.clear();
-        setIsComponent(false);
+        setIsComponent(false)
         return clear;
     }
 
@@ -99,16 +100,22 @@ const StepsSection = ({thing, bags,localization,who,street, city, postCode, phon
         <section className='giveThingFormsBox'>
             {count < 5 ? <ImportantSection info={information}/> : ''}
             <section className='stepsSection'>
-                <div className='container'>
-                    {count < 5 ? <span className='num-of-step'>Krok {count}/5</span> : ''}
-                    {isComponent? component : <ThanksStep/>}
-                    <div className='buttons-box'>
-                        <p style={style}>{message}</p>
-                        {count !== 1 ? <button onClick={backClick}>Wstecz</button> : ""}
-                        {count !== 5 ? <button onClick={onClick}>Dalej</button> :
-                            <button onClick={submitInformation}>Potwierdzam</button>}
+                {isComponent ?
+                    <div className='container'>
+                        {count < 5 ? <span className='num-of-step'>Krok {count}/5</span> : ''}
+                        {component}
+                        <div className='buttons-box'>
+                            <p style={style}>{message}</p>
+                            {count !== 1 ? <button onClick={backClick}>Wstecz</button> : ""}
+                            {count !== 5 ? <button onClick={onClick}>Dalej</button> :
+                                <NavLink to='/thanksStep'>
+                                    <button onClick={submitInformation}>Potwierdzam</button>
+                                </NavLink>}
+                        </div>
                     </div>
-                </div>
+                : <ThanksStep/>
+                }
+
 
             </section>
         </section>
