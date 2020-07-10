@@ -9,7 +9,9 @@ import FourthStep from "./FourthStep";
 import FifthStep from "./FifthStep";
 import ThanksStep from "./ThanksStep";
 
-import actions from "../../../app/giveForms/duck/actions";
+import actionsForm from "../../../app/giveForms/duck/actions";
+import actionsPost from "../../../app/log/duck/actions";
+
 import {NavLink} from "react-router-dom";
 
 const titles = {
@@ -32,10 +34,36 @@ const style = {
     marginBottom: '15px'
 }
 
-const StepsSection = ({thing, bags, localization, who, street, city, postCode, phone, date, hour, clear}) => {
+const postInfo = {
+    "formsData": [
+        {"thing": "",
+            "bags": "",
+            "localization": "",
+            "who": [],
+            "pickupAddress": [
+                {"street": "",
+                    "city": "",
+                    "postCode": "",
+                    "phone": ""
+                }
+            ],
+            "pickupData": [
+                {
+                    "date": "",
+                    "hour": "",
+                    "message": ""
+                }
+            ]
+        }
+
+    ]
+}
+
+const StepsSection = ({thing, bags, localization, who, street, city, postCode, phone, date, hour, clear,postFormData}) => {
     const [count, setCount] = useState(1);
     const [message, setMessage] = useState('');
     const [isComponent, setIsComponent] = useState(true);
+    const [infoToPost, setInfoToPost] = useState(postInfo);
     let component = '';
     let information = '';
 
@@ -91,8 +119,34 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
     const submitInformation = (e) => {
         e.preventDefault();
+
+        setInfoToPost({
+            "formsData": [
+                {"thing": thing,
+                    "bags": bags,
+                    "localization": localization,
+                    "who": who,
+                    "pickupAddress": [
+                        {"street": street,
+                            "city": city,
+                            "postCode": postCode,
+                            "phone": phone
+                        }
+                    ],
+                    "pickupData": [
+                        {
+                            "date": date,
+                            "hour": hour,
+                            "message": message
+                        }
+                    ]
+                }
+
+            ]
+        });
+        setIsComponent(false);
         localStorage.clear();
-        setIsComponent(false)
+        postFormData(infoToPost);
         return clear;
     }
 
@@ -124,7 +178,8 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
 
 const mapDispatchToProps = dispatch => ({
-    clear: () => dispatch(actions.clearAll)
+    clear: () => dispatch(actionsForm.clearAll),
+    postFormData: (data) => dispatch(actionsPost.postFormsData(data))
 })
 const mapStateToProps = state => ({
     thing: state.giveForms.thing,

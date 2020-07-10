@@ -26,4 +26,17 @@ const register = (user) => dispatch =>{
     .catch(dispatch(actions.catchError(true)));
 };
 
-export default {login,register}
+const postFormData = data => dispatch =>{
+    fetch(API,{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(dispatch(actions.postFormsData(data)))
+        .catch(dispatch(actions.catchError(true)))
+}
+
+export default {login,register, postFormData}

@@ -7,7 +7,8 @@ const rootReducer = combineReducers(
     {
         log: logReducer,
         post: postReducer,
-        giveForms: giveFormsReducer
+        giveForms: giveFormsReducer,
+
     }
 );
 
