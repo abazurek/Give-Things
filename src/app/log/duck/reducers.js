@@ -3,6 +3,7 @@ import types from "./types";
 const initialState={
     user:false,
     error:false,
+    data: false
 };
 
 function logReducer(state = initialState, action) {
@@ -17,6 +18,11 @@ function logReducer(state = initialState, action) {
             return {
                 ...state, error: true
             };
+        case types.POST_FORMS_DATA:
+            return {
+                ...state,
+                data: action.data
+            }
         default:
             return state
     }

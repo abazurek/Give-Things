@@ -3,7 +3,29 @@
     {
       "id": 1,
       "email": "admin@admin.pl",
-      "password": "adminadmin"
+      "password": "adminadmin",
+      "formsData": [
+        {"thing": "",
+          "bags": "",
+          "localization": "",
+          "who": [],
+          "pickupAddress": [
+            {"street": "",
+              "city": "",
+              "postCode": "",
+              "phone": ""
+            }
+          ],
+          "pickupData": [
+            {
+              "date": "",
+              "hour": "",
+              "message": ""
+            }
+          ]
+        }
+
+      ]
     },
     {
       "email": "kaczka@kaczka.pl",
