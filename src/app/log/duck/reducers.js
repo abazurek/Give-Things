@@ -1,7 +1,7 @@
 import types from "./types";
 
 const initialState={
-    user:false,
+    user:localStorage.user,
     error:false,
     data: false
 };
@@ -21,7 +21,8 @@ function logReducer(state = initialState, action) {
         case types.POST_FORMS_DATA:
             return {
                 ...state,
-                data: action.data
+                data: action.data,
+                error: false
             }
         default:
             return state

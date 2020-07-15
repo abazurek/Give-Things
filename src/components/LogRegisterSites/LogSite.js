@@ -29,7 +29,7 @@ function LoginSite({user,error,login}) {
             setTrueOrFalse(prev => ({...prev, password: true}));
             return;
         }
-
+        localStorage.setItem('user',info.email);
         login(info);
         setInfo(information);
     }

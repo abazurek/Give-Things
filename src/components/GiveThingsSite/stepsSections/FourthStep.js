@@ -21,7 +21,7 @@ const FourthStep =({title,street, city,postCode,phone, date, time, message, setS
                         <input type='text' value={city} onChange={({target})=>setCity(target.value)}/>
                     </label>
                     <label> <span>Kod pocztowy</span>
-                        <input type='number' value={postCode} onChange={({target})=>setPostCode(target.value)}/>
+                        <input type='postal' value={postCode} onChange={({target})=>setPostCode(target.value)}/>
                     </label>
                     <label> <span>Numer telefonu</span>
                         <input  type='number' value={phone} onChange={({target})=>setPhone(target.value)}/>
