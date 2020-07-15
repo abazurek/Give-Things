@@ -33,6 +33,7 @@ function RegisterSite({user,error, register}) {
             return;
         }else setMessage(prev=>({...prev, password2: false}));
         data={"email":info.email, "password":info.password};
+        localStorage.setItem('user',info.email);
         register(data);
         setInfo(information);
         setMessage({email:false, password:false, password2:false})

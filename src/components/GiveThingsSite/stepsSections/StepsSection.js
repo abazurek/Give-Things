@@ -13,6 +13,7 @@ import actionsForm from "../../../app/giveForms/duck/actions";
 import actionsPost from "../../../app/log/duck/actions";
 
 import {NavLink} from "react-router-dom";
+import operations from "../../../app/log/duck/operations";
 
 const titles = {
     first: 'Zaznacz co chcesz oddać:',
@@ -63,9 +64,11 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     const [count, setCount] = useState(1);
     const [message, setMessage] = useState('');
     const [isComponent, setIsComponent] = useState(true);
-    const [infoToPost, setInfoToPost] = useState(postInfo);
+    // const [infoToPost, setInfoToPost] = useState(postInfo);
     let component = '';
     let information = '';
+
+    let data = {};
 
     switch (count) {
         case 1:
@@ -108,7 +111,21 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
         } else if (count === 4 && (street === '' || city === '' || postCode === '' || phone === '' || date === '' || hour === '')) {
             setMessage("Musisz wypełnić formularz aby przejśc dalej")
             return;
-        } else setMessage('')
+        } else if(count ===4 && street.length<2){
+            setMessage("Nazwa ulicy musi zawierać co najmiej dwa znaki")
+            return;
+        }
+        else if(count ===4 && city.length<3){
+            setMessage("Nazwa miasta musi zawierać co najmniej 3 znaki")
+            return;
+        }else if(count ===4 && !postCode.match(/^dd-ddd$/)){
+            setMessage("Kod pocztowy musi być zapisany w fomie NN-NNN")
+            return;
+        }else if(count ===4 && (phone.length!==9 || phone.include(NaN))){
+            setMessage("Numer telefonu musi skladać się z 9 cyfr")
+            return;
+        }
+        else setMessage('')
         setCount(prev => prev + 1)
 
     }
@@ -119,8 +136,7 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
     const submitInformation = (e) => {
         e.preventDefault();
-
-        setInfoToPost({
+        data={
             "formsData": [
                 {"thing": thing,
                     "bags": bags,
@@ -143,10 +159,11 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
                 }
 
             ]
-        });
+        };
+        // postFormData(data.formsData);
         setIsComponent(false);
-        localStorage.clear();
-        postFormData(infoToPost);
+        const itemsToRemove = ["thing","bags","localization","who","street","city","postCode","phone","date","hour","message"];
+        itemsToRemove.forEach(item=>localStorage.removeItem(item));
         return clear;
     }
 
@@ -179,7 +196,7 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
 const mapDispatchToProps = dispatch => ({
     clear: () => dispatch(actionsForm.clearAll),
-    postFormData: (data) => dispatch(actionsPost.postFormsData(data))
+    postFormData: (data) => dispatch(actionsForm.postFormsData(data))
 })
 const mapStateToProps = state => ({
     thing: state.giveForms.thing,
