@@ -66,24 +66,23 @@
     position: absolute;
     bottom: 50px;
 
-    button {
-      background: none;
-      border: 0.75px solid $color-font-base;
-      font-weight: lighter;
-      font-size: 1.5em;
-      padding: 1em 2.625em;
+  }
+  button {
+    background: none;
+    border: 0.75px solid $color-font-base;
+    font-weight: lighter;
+    font-size: 1.5em;
+    padding: 1em 2.625em;
 
-      &:first-of-type {
-        margin-right: 50px;
-      }
+    &:first-of-type {
+      margin-right: 50px;
+    }
 
-      &:focus {
-        outline: none;
-        border: 0.75px solid $color-font-base;;
-      }
+    &:focus {
+      outline: none;
+      border: 0.75px solid $color-font-base;;
     }
   }
-
   .box {
     font-size: 1.5em;
     h3 {
@@ -264,6 +263,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       max-width: 630px;
       font-weight: lighter;
       p{
@@ -274,6 +274,10 @@
       }
       img{
         margin-top: 1.5625em;
+      }
+      button{
+        cursor: pointer;
+        margin: 100px 0 0 0;
       }
     }
   }

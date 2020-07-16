@@ -9,7 +9,7 @@ const texts = {
     third: 'zabawki',
     fourth: 'książki',
     fifth: 'inne'
-}
+};
 
 const FirstStep = ({title, thing, setThing}) => {
 
@@ -21,7 +21,7 @@ const FirstStep = ({title, thing, setThing}) => {
             if (item.checked) {
                 localStorage.setItem('thing', item.value);
             }
-        })
+        });
 
         const check = localStorage.getItem('thing');
 
@@ -31,7 +31,7 @@ const FirstStep = ({title, thing, setThing}) => {
             }
         });
 
-    }, [thing])
+    }, [thing]);
 
 
     function changeChecked({target}) {
