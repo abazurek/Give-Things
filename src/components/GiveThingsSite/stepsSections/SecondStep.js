@@ -7,7 +7,7 @@ const SecondStep = ({title,bags, setBags}) =>{
 
     useEffect(function () {
         const options = document.querySelectorAll('option');
-        localStorage.setItem('bags',bags)
+        localStorage.setItem('bags',bags);
 
         const chosenBags = localStorage.getItem('bags');
 
@@ -16,7 +16,7 @@ const SecondStep = ({title,bags, setBags}) =>{
                item.setAttribute('selected','true')
             }
         })
-    },[bags])
+    },[bags]);
 
     return (
         <div>
@@ -37,13 +37,13 @@ const SecondStep = ({title,bags, setBags}) =>{
             </div>
         </div>
     )
-}
+};
 const mapStateToProps = state =>({
     bags: state.giveForms.bags
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     setBags: value => dispatch(actions.setBags(value))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecondStep);

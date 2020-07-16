@@ -13,9 +13,9 @@ const clear = {
     date: '',
     hour: '',
     message: ''
-}
+};
 
-const initialState = clear;
+const initialState=clear;
 
 function giveFormsReducer(state = initialState, action) {
     switch (action.type) {
@@ -73,7 +73,18 @@ function giveFormsReducer(state = initialState, action) {
             };
         case types.CLEAR_ALL:
             return {
-                clear
+                thing: '',
+                bags: '',
+                localization: '',
+                who: [],
+                organization: '',
+                street: '',
+                city: '',
+                postCode: '',
+                phone: '',
+                date: '',
+                hour: '',
+                message: ''
             };
         default:
             return state

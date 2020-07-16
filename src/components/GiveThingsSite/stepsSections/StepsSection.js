@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
+import {NavLink} from "react-router-dom";
 
 import ImportantSection from "../ImportantSection";
 import FirstStep from "./FisrtStep";
@@ -11,9 +12,8 @@ import ThanksStep from "./ThanksStep";
 
 import actionsForm from "../../../app/giveForms/duck/actions";
 import actionsPost from "../../../app/log/duck/actions";
-
-import {NavLink} from "react-router-dom";
 import operations from "../../../app/log/duck/operations";
+
 
 const titles = {
     first: 'Zaznacz co chcesz oddać:',
@@ -21,50 +21,56 @@ const titles = {
     third: 'Lokalizacja:',
     fourth: 'Podaj adres oraz termin odbioru rzecz przez kuriera',
     fifth: 'Podaj adres oraz termin odbioru rzecz przez kuriera'
-}
+};
 
 const informs = {
     first: 'Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać.',
     second: 'Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję jak poprawnie spakować rzeczy znajdziesz TUTAJ.',
     third: 'Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy.',
     fourth: ' Podaj adres oraz termin odbioru rzeczy.'
-}
+};
 
 const style = {
     color: "red",
     marginBottom: '15px'
-}
+};
 
-const postInfo = {
-    "formsData": [
-        {"thing": "",
-            "bags": "",
-            "localization": "",
-            "who": [],
-            "pickupAddress": [
-                {"street": "",
-                    "city": "",
-                    "postCode": "",
-                    "phone": ""
-                }
-            ],
-            "pickupData": [
-                {
-                    "date": "",
-                    "hour": "",
-                    "message": ""
-                }
-            ]
-        }
+// const postInfo = {
+//     "formsData": [
+//         {"thing": "",
+//             "bags": "",
+//             "localization": "",
+//             "who": [],
+//             "pickupAddress": [
+//                 {"street": "",
+//                     "city": "",
+//                     "postCode": "",
+//                     "phone": ""
+//                 }
+//             ],
+//             "pickupData": [
+//                 {
+//                     "date": "",
+//                     "hour": "",
+//                     "message": ""
+//                 }
+//             ]
+//         }
+//
+//     ]
+// };
 
-    ]
-}
+const now = new Date();
+const currentDay = now.getDate();
+const currentMonth = now.getMonth() + 1;
+const currentYear = now.getFullYear();
+const currentHour = now.getHours();
+const currentMinutes = now.getMinutes();
 
-const StepsSection = ({thing, bags, localization, who, street, city, postCode, phone, date, hour, clear,postFormData}) => {
+const StepsSection = ({thing, bags, localization, who, street, city, postCode, phone, date, hour, clear, postFormData}) => {
     const [count, setCount] = useState(1);
     const [message, setMessage] = useState('');
     const [isComponent, setIsComponent] = useState(true);
-    // const [infoToPost, setInfoToPost] = useState(postInfo);
     let component = '';
     let information = '';
 
@@ -72,60 +78,74 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
     switch (count) {
         case 1:
-            component = (<FirstStep title={titles.first}/>)
-            information = informs.first
+            component = (<FirstStep title={titles.first}/>);
+            information = informs.first;
             break;
         case 2:
-            component = (<SecondStep title={titles.second}/>)
-            information = informs.second
+            component = (<SecondStep title={titles.second}/>);
+            information = informs.second;
             break;
         case 3:
-            component = (<ThirdStep title={titles.third}/>)
-            information = informs.third
+            component = (<ThirdStep title={titles.third}/>);
+            information = informs.third;
             break;
         case 4:
-            component = (<FourthStep title={titles.fourth}/>)
-            information = informs.fourth
+            component = (<FourthStep title={titles.fourth}/>);
+            information = informs.fourth;
             break;
         case 5:
-            component = (<FifthStep title={titles.fifth}/>)
-            information = informs.fifth
+            component = (<FifthStep title={titles.fifth}/>);
+            information = informs.fifth;
             break;
         default:
-            component = (<span>Przepraszamy, wystąpił błąd</span>)
+            component = (<span>Przepraszamy, wystąpił błąd</span>);
             break;
     }
 
+    const dateNumbers = date.split('-').map(item => parseInt(item));
+    const formYear=dateNumbers[0];
+    const formMouth = dateNumbers[1];
+    const formDay = dateNumbers[2];
+    const hourNumbers = hour.split(':').map(item => parseInt(item));
+    const formHour = hourNumbers[0];
+    const formMinutes = hourNumbers[1];
 
     function onClick(e) {
         e.preventDefault();
-        if (count === 1 && thing === '') {
-            setMessage('Musisz zaznaczyć jedno pole aby przejść dalej')
+        if (count === 1 && (thing === '')) {
+            setMessage('Musisz zaznaczyć jedno pole aby przejść dalej');
             return;
         } else if (count === 2 && bags === '') {
-            setMessage('Musisz wybrać ilość worków aby przejść dalej')
+            setMessage('Musisz wybrać ilość worków aby przejść dalej');
             return;
         } else if (count === 3 && localization === '' || count === 3 && who.length === 0) {
-            setMessage("Musisz wybrać lokalizację i co najmniej jedną z opcji komu chcesz pomóc aby przejść dalej")
+            setMessage("Musisz wybrać lokalizację i co najmniej jedną z opcji komu chcesz pomóc aby przejść dalej");
             return;
         } else if (count === 4 && (street === '' || city === '' || postCode === '' || phone === '' || date === '' || hour === '')) {
-            setMessage("Musisz wypełnić formularz aby przejśc dalej")
+            setMessage("Musisz wypełnić formularz aby przejśc dalej");
             return;
-        } else if(count ===4 && street.length<2){
-            setMessage("Nazwa ulicy musi zawierać co najmiej dwa znaki")
+        } else if (count === 4 && street.length < 2) {
+            setMessage("Nazwa ulicy musi zawierać co najmiej dwa znaki");
             return;
-        }
-        else if(count ===4 && city.length<3){
-            setMessage("Nazwa miasta musi zawierać co najmniej 3 znaki")
+        } else if (count === 4 && city.length < 3) {
+            setMessage("Nazwa miasta musi zawierać co najmniej 3 znaki");
             return;
-        }else if(count ===4 && !postCode.match(/^dd-ddd$/)){
-            setMessage("Kod pocztowy musi być zapisany w fomie NN-NNN")
+        } else if (count === 4 && !postCode.match(/^[0-9]{2}-[0-9]{3}$/)) {
+            setMessage("Kod pocztowy musi być zapisany w fomie NN-NNN");
             return;
-        }else if(count ===4 && (phone.length!==9 || phone.include(NaN))){
-            setMessage("Numer telefonu musi skladać się z 9 cyfr")
+        } else if (count === 4 && (phone.length !== 9 || !phone.match(/^([0-9]{9})$/))) {
+            setMessage("Numer telefonu musi skladać się z 9 cyfr");
             return;
-        }
-        else setMessage('')
+        } else if (count === 4 && (formYear < currentYear || (formYear === currentYear && formMouth < currentMonth) || (formYear === currentYear && formMouth === currentMonth && formDay < currentDay))) {
+
+            setMessage(`Data i godzina musi być co najmniej o 3 godziny większa od teraźniejszej i być pomiędzy 7 rano a 22 wieczorem, data i godzina w tym monencie to: ${currentDay}-0${currentMonth}-${currentYear}, godzina: ${currentHour}:${currentMinutes}`);
+            return;
+        } else if (count === 4 && ((formYear === currentYear && formMouth === currentMonth && formDay === currentDay && ((formHour === currentHour + 3 && formMinutes < currentMinutes - 1) || formHour < currentHour + 3))
+        || (formHour>22 || (formHour===22 && formMinutes!==0) || formHour<7))) {
+            setMessage(`Data i godzina musi być co najmniej o 3 godziny większa od teraźniejszej i być pomiędzy 7 rano a 22 wieczorem, data i godzina w tym monencie to: ${currentDay}-0${currentMonth}-${currentYear}, godzina: ${currentHour}:${currentMinutes}`);
+            return;
+
+        } else setMessage('');
         setCount(prev => prev + 1)
 
     }
@@ -134,16 +154,19 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
         setCount(prev => prev - 1)
     }
 
+
     const submitInformation = (e) => {
         e.preventDefault();
-        data={
+        data = {
             "formsData": [
-                {"thing": thing,
+                {
+                    "thing": thing,
                     "bags": bags,
                     "localization": localization,
                     "who": who,
                     "pickupAddress": [
-                        {"street": street,
+                        {
+                            "street": street,
                             "city": city,
                             "postCode": postCode,
                             "phone": phone
@@ -160,12 +183,12 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
             ]
         };
-        // postFormData(data.formsData);
+        postFormData(data.formsData);
         setIsComponent(false);
-        const itemsToRemove = ["thing","bags","localization","who","street","city","postCode","phone","date","hour","message"];
-        itemsToRemove.forEach(item=>localStorage.removeItem(item));
-        return clear;
-    }
+        clear();
+        const itemsToRemove = ["thing", "bags", "localization", "who", "street", "city", "postCode", "phone", "date", "hour", "message"];
+        itemsToRemove.forEach(item => localStorage.removeItem(item));
+    };
 
     return (
         <section className='giveThingFormsBox'>
@@ -184,20 +207,21 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
                                 </NavLink>}
                         </div>
                     </div>
-                : <ThanksStep/>
+                    : <ThanksStep/>
                 }
 
 
             </section>
         </section>
     )
-}
+};
 
 
 const mapDispatchToProps = dispatch => ({
-    clear: () => dispatch(actionsForm.clearAll),
-    postFormData: (data) => dispatch(actionsForm.postFormsData(data))
-})
+    clear: () => dispatch(actionsForm.clearAll()),
+    postFormData: (data) => dispatch(actionsPost.postFormsData(data))
+});
+
 const mapStateToProps = state => ({
     thing: state.giveForms.thing,
     bags: state.giveForms.bags,
@@ -209,6 +233,6 @@ const mapStateToProps = state => ({
     phone: state.giveForms.phone,
     date: state.giveForms.date,
     hour: state.giveForms.hour
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(StepsSection)

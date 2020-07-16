@@ -2,11 +2,8 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import actions from "../../../app/giveForms/duck/actions";
 
+
 const FourthStep =({title,street, city,postCode,phone, date, time, message, setStreet, setCity, setPostCode, setPhone, setDate, setTime, setMessage}) =>{
-
-    useEffect(function () {
-
-    },[])
 
     return(
         <div>
@@ -42,7 +39,7 @@ const FourthStep =({title,street, city,postCode,phone, date, time, message, setS
             </div>
         </div>
     )
-}
+};
 
 const mapStateToProps = state =>({
     street: state.giveForms.street,
@@ -52,7 +49,7 @@ const mapStateToProps = state =>({
     date: state.giveForms.date,
     time: state.giveForms.hour,
     message: state.giveForms.message
-})
+});
 
 const mapDispatchToProps = dispatch =>({
     setStreet: setStreet => dispatch(actions.setStreet(setStreet)),
@@ -63,6 +60,6 @@ const mapDispatchToProps = dispatch =>({
     setTime: hour => dispatch(actions.setHour(hour)),
     setMessage: note => dispatch(actions.setMessage(note))
 
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(FourthStep);
