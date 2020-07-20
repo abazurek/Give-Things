@@ -1,11 +1,14 @@
 import React, {useEffect} from "react";
 import {connect} from 'react-redux';
 import actions from "../../../app/giveForms/duck/actions";
-
+import createCustomSelect from "./customSelect";
 
 const ThirdStep = ({title, who, localization,organization, setLocalization, setWhoAdd, setWhoRemove, setOrganization}) => {
 
+
+
     useEffect(function () {
+        createCustomSelect();
         const options = document.querySelectorAll('option');
         localStorage.setItem('localization', localization);
 
@@ -14,7 +17,7 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
             if (item.value === chosenLocalization) {
                 item.setAttribute('selected', 'true');
             }
-        })
+        });
 
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         localStorage.setItem('who', who);
@@ -27,7 +30,9 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
             })
         }
 
-    }, [localization, who])
+    }, [localization, who]);
+
+
 
     function clickedCheckbox({target}) {
         if (who.includes(target.value)) {
@@ -74,21 +79,20 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
 
         </div>
     )
-}
+};
 
 const mapStateToProps = state => ({
     localization: state.giveForms.localization,
     who: state.giveForms.who,
     organization: state.giveForms.organization
 
-})
-
+});
 const mapDispatchToProps = dispatch => ({
     setLocalization: value => dispatch(actions.setLocalization(value)),
     setWhoAdd: value => dispatch(actions.addWho(value)),
     setWhoRemove: value => dispatch(actions.removeWho(value)),
     setOrganization: value => dispatch(actions.setOrganization(value))
-})
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThirdStep);

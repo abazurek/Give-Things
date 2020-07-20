@@ -1,11 +1,14 @@
 import React,{useEffect} from "react";
 import {connect} from 'react-redux'
 import actions from "../../../app/giveForms/duck/actions";
-
+import createCustomSelect from "./customSelect";
 
 const SecondStep = ({title,bags, setBags}) =>{
 
+
+
     useEffect(function () {
+        createCustomSelect();
         const options = document.querySelectorAll('option');
         localStorage.setItem('bags',bags);
 
