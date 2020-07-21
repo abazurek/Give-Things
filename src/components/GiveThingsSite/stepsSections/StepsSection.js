@@ -110,12 +110,16 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     const formHour = hourNumbers[0];
     const formMinutes = hourNumbers[1];
 
+
+
     function onClick(e) {
         e.preventDefault();
         if (count === 1 && (thing === '')) {
             setMessage('Musisz zaznaczyć jedno pole aby przejść dalej');
             return;
         } else if (count === 2 && bags === '') {
+            console.log(bags);
+            // console.log(localStorage.bags);
             setMessage('Musisz wybrać ilość worków aby przejść dalej');
             return;
         } else if (count === 3 && localization === '' || count === 3 && who.length === 0) {

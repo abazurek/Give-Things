@@ -3,23 +3,34 @@ import {connect} from 'react-redux'
 import actions from "../../../app/giveForms/duck/actions";
 import createCustomSelect from "./customSelect";
 
-const SecondStep = ({title,bags, setBags}) =>{
-
-
+const SecondStep = ({title,click,bags, setBags}) =>{
+    const select = document.getElementsByClassName('select-selected');
+    const selectedAll = document.getElementsByClassName('same-as-selected');
 
     useEffect(function () {
         createCustomSelect();
-        const options = document.querySelectorAll('option');
-        localStorage.setItem('bags',bags);
+        const selected = document.querySelector('.same-as-selected');
+        // const options = document.querySelectorAll('option');
+
+        // if(selected.value!==undefined){
+        //     setBags(selected.value)
+        // }
+        console.log(selected!==null);
+        if(selected){
+            localStorage.setItem('bags',selected.innerText);
+            setBags(selected.innerText);
+        }
+
 
         const chosenBags = localStorage.getItem('bags');
 
-        options.forEach(function (item) {
-            if(item.value === chosenBags){
-               item.setAttribute('selected','true')
-            }
-        })
-    },[bags]);
+
+        // options.forEach(function (item) {
+        //     if(item.value === chosenBags){
+        //        item.setAttribute('selected','true')
+        //     }
+        // })
+    },[]);
 
     return (
         <div>
@@ -28,7 +39,7 @@ const SecondStep = ({title,bags, setBags}) =>{
                 <span>Liczba 60l worków</span>
                 <div className='custom-select'>
                     <select  onChange={({target})=>(setBags(target.value))}>
-                        <option hidden >- wybierz -</option>
+                        <option hidden >— wybierz —</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
