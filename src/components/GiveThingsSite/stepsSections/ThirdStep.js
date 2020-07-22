@@ -6,31 +6,41 @@ import createCustomSelect from "./customSelect";
 const ThirdStep = ({title, who, localization,organization, setLocalization, setWhoAdd, setWhoRemove, setOrganization}) => {
 
 
+    const giveSelected =()=>{
+        const selected = document.querySelector('.same-as-selected');
+        if(selected){
+            setLocalization(selected.innerText);
+            localStorage.setItem('localization', selected.innerText)
+        }
+
+    };
+
 
     useEffect(function () {
         createCustomSelect();
-        const options = document.querySelectorAll('option');
-        localStorage.setItem('localization', localization);
-
-        const chosenLocalization = localStorage.getItem('localization');
-        options.forEach(function (item) {
-            if (item.value === chosenLocalization) {
-                item.setAttribute('selected', 'true');
+        const selectItems= document.querySelector('.select-items');
+        const children = selectItems.childNodes;
+        const selectSelected = document.querySelector('.select-selected');
+        children.forEach(item=>{
+            if(item.innerText === localStorage.getItem('localization')){
+                item.setAttribute('class','same-as-selected');
+                selectSelected.innerHTML=item.innerText;
+                setLocalization(item.innerText);
             }
         });
 
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        localStorage.setItem('who', who);
         const whoTable = localStorage.getItem('who').split(',');
         for (let i = 0; i < whoTable.length; i++) {
             checkboxes.forEach(function (item) {
                 if (item.value === whoTable[i]) {
                     item.setAttribute('checked', 'checked');
+                    setWhoAdd(whoTable[i])
                 }
             })
         }
 
-    }, [localization, who]);
+    }, []);
 
 
 
@@ -40,14 +50,17 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
             return
         }
 
-        return setWhoAdd(target.value)
+        return setWhoAdd(target.value);
     }
 
+    if(who !== ''){
+        localStorage.setItem('who', who);
+    }
     return (
         <div>
             <h2 className='step-title'>{title}</h2>
             <div className='box'>
-                <div className='custom-select'>
+                <div className='custom-select' onClick={giveSelected}>
                     <select onChange={({target}) => setLocalization(target.value)}>
                         <option hidden>-wybierz-</option>
                         <option>Poznań</option>

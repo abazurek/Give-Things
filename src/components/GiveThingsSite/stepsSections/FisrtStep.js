@@ -27,7 +27,8 @@ const FirstStep = ({title, thing, setThing}) => {
 
         items.forEach(function (item) {
             if (item.value === check) {
-              item.setAttribute('checked','checked')
+              item.setAttribute('checked','checked');
+              setThing(item.value)
             }
         });
 
@@ -71,13 +72,13 @@ const FirstStep = ({title, thing, setThing}) => {
             </form>
         </div>
     )
-}
+};
 const mapStateToProps = state => ({
     thing: state.giveForms.thing
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     setThing: value => dispatch(actions.setThing(value))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(FirstStep);
