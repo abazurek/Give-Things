@@ -114,11 +114,11 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
     function onClick(e) {
         e.preventDefault();
+
         if (count === 1 && (thing === '')) {
             setMessage('Musisz zaznaczyć jedno pole aby przejść dalej');
             return;
         } else if (count === 2 && bags === '') {
-            console.log(bags);
             // console.log(localStorage.bags);
             setMessage('Musisz wybrać ilość worków aby przejść dalej');
             return;
