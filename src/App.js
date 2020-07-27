@@ -7,10 +7,10 @@ import RegisterSite from "./components/LogRegisterSites/RegisterSite";
 import Header from "./components/Home/header/Header";
 import LogOut from "./components/LogOut";
 import GiveThingsAll from "./components/GiveThingsSite/GiveThingsAll";
-import createBrowserHistory from 'history/createBrowserHistory'
+import {createBrowserHistory} from 'history'
 
 
-export const history = createBrowserHistory();
+export  const history = createBrowserHistory();
 
 
 function App() {
