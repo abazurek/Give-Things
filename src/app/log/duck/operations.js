@@ -1,17 +1,31 @@
 import actions from "./actions";
 import {history} from '../../../App'
+// import {history} from 'history'
+
 
 const API = 'http://localhost:3004/log';
 
-const login = ({email, password}) => dispatch => {
-    fetch(`${API}?email=${email}&password=${password}`)
+// const login = ({email, password}) => dispatch => {
+//     fetch(`${API}?email=${email}&password=${password}`)
+//         .then(data => data.json())
+//         .then(arr => arr[0])
+//         .then(user => {
+//             dispatch(actions.setUser(email));
+//             // history.push('/')
+//         })
+//         .catch(dispatch(actions.catchError(true)));
+// };
+const login = (info) => dispatch => {
+    fetch(API)
         .then(data => data.json())
-        .then(arr => arr[0])
-        .then(user => {
-            dispatch(actions.setUser(email))
-            history.push('/')
-        })
-        .catch(dispatch(actions.catchError(true)));
+        .then(arr => arr.forEach(function (item) {
+            if(item.email===info.email && item.password===info.password){
+                dispatch(actions.setUser(info.email));
+                localStorage.setItem('user', info.email)
+            }
+        }))
+        .catch(dispatch(actions.catchError(true)))
+
 };
 
 const register = (user) => dispatch => {
@@ -39,6 +53,6 @@ const postFormData = (data) => dispatch => {
         .then(data => dispatch(actions.postFormsData(data)))
         .catch(dispatch(actions.catchError(true)))
 
-}
+};
 
 export default {login, register, postFormData}

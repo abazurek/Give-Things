@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {connect} from 'react-redux'
 import operations from "../../app/log/duck/operations";
@@ -29,7 +29,6 @@ function LoginSite({user,error,login}) {
             setTrueOrFalse(prev => ({...prev, password: true}));
             return;
         }
-        localStorage.setItem('user',info.email);
         login(info);
         setInfo(information);
     }

@@ -30,7 +30,11 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
         });
 
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const whoTable = localStorage.getItem('who').split(',');
+        const who= localStorage.getItem('who');
+        let whoTable=[];
+        if(who){
+            whoTable=who.split(',');
+        }
         for (let i = 0; i < whoTable.length; i++) {
             checkboxes.forEach(function (item) {
                 if (item.value === whoTable[i]) {

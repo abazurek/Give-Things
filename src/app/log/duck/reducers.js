@@ -1,7 +1,12 @@
 import types from "./types";
 
+let name =false;
+if(localStorage.getItem('user')){
+    name=localStorage.getItem('user')
+}
+
 const initialState={
-    user:localStorage.user,
+    user:name,
     error:false,
     data: false
 };
@@ -16,14 +21,16 @@ function logReducer(state = initialState, action) {
             };
         case types.CATCH_ERROR:
             return {
-                ...state, error: true
+                user:false,
+                error: true,
+                data:false
             };
         case types.POST_FORMS_DATA:
             return {
                 ...state,
                 data: action.data,
                 error: false
-            }
+            };
         default:
             return state
     }
