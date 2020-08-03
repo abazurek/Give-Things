@@ -5,6 +5,7 @@ import operations from "../../app/log/duck/operations";
 
 import decoration from '../../assets/Decoration.svg'
 import validateEmail from "../validateEmail";
+import actions from "../../app/log/duck/actions";
 
 const information={email:'',password:''};
 
@@ -19,6 +20,7 @@ function LoginSite({user,error,login}) {
         fontSize: '12px'
     };
 
+
     function submitForm(e) {
         e.preventDefault();
         if (!validateEmail(info.email) || info.email === information.email) {
@@ -28,7 +30,7 @@ function LoginSite({user,error,login}) {
         if(info.password.length<6 || info.password===information.password){
             setTrueOrFalse(prev => ({...prev, password: true}));
             return;
-        }
+        }else setTrueOrFalse(prev => ({...prev, password: false}));
         login(info);
         setInfo(information);
     }
@@ -66,11 +68,11 @@ function LoginSite({user,error,login}) {
 
 const mapStateToProps = state =>({
     user: state.log.user,
-    error:state.log.error
+    error:state.log.error,
 });
 
 const mapDispatchToProps = dispatch =>({
-    login: (info)=>dispatch(operations.login(info))
+    login: (info)=>dispatch(operations.login(info)),
 });
 
 
