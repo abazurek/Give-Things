@@ -7,5 +7,6 @@ const postFormsData = data =>({type:types.POST_FORMS_DATA, data});
 export default {
     setUser,
     catchError,
-    postFormsData
+    postFormsData,
+
 }

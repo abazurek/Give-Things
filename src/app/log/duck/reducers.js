@@ -8,7 +8,7 @@ if(localStorage.getItem('user')){
 const initialState={
     user:name,
     error:false,
-    data: false
+    data: false,
 };
 
 function logReducer(state = initialState, action) {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import decoration from "../../assets/Decoration.svg";
 import {NavLink} from "react-router-dom";
 import validateEmail from "../validateEmail";
@@ -19,11 +19,10 @@ function RegisterSite({user,error, register}) {
     function submitForm(e) {
         e.preventDefault();
 
-        if(!validateEmail(info.email) || info.email===information.email){
+        if(!validateEmail(info.email) || info.email === information.email){
             setMessage(prev=>({...prev, email: true}));
             return;
         } else setMessage(prev=>({...prev, email: false}));
-
         if(info.password.length<6){
             setMessage(prev=>({...prev, password: true}));
             return;
@@ -33,9 +32,9 @@ function RegisterSite({user,error, register}) {
             return;
         }else setMessage(prev=>({...prev, password2: false}));
         data={"email":info.email, "password":info.password};
-        localStorage.setItem('user',info.email);
         register(data);
         setInfo(information);
+
         setMessage({email:false, password:false, password2:false})
     }
 
@@ -63,7 +62,7 @@ function RegisterSite({user,error, register}) {
                         {message.password2? <span style={style}>Hasła muszą być identyczne!</span> : ''}
                     </label>
                 </div>
-                {error? <p style={style}> Wystąpił błąd, spróbuj ponownie później</p> : ''}
+                {error? <p style={style}> Użytkownik o podanej nazwie już istnieje. Podaj inny email</p> : ''}
                 <div className='logRegisterButtons'>
                     <button><NavLink className='navLink' to={'/login'}>Zaloguj się</NavLink></button>
                     <button className='submit' type='submit'>Załóż konto</button>
