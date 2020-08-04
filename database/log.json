@@ -11,14 +11,9 @@
       "id": 2
     },
     {
-      "email": "ggggg@pl.pl",
-      "password": "gggggg",
-      "id": 3
-    },
-    {
       "email": "admin@admin.pl",
-      "password": "mmmmmm",
-      "id": 4
+      "password": "kkkkkk",
+      "id": 3
     }
   ]
 }
