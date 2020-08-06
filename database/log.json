@@ -11,13 +11,13 @@
       "id": 2
     },
     {
-      "email": "ggggg@pl.pl",
-      "password": "gggggg",
+      "email": "admin@admin.pl",
+      "password": "kkkkkk",
       "id": 3
     },
     {
-      "email": "admin@admin.pl",
-      "password": "mmmmmm",
+      "email": "kaszanka@pl.pl",
+      "password": "5555555",
       "id": 4
     }
   ]

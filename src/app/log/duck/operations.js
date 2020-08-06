@@ -1,20 +1,6 @@
 import actions from "./actions";
-import {history} from '../../../App'
-// import {history} from 'history'
-
 
 const API = 'http://localhost:3004/log';
-
-// const login = ({email, password}) => dispatch => {
-//     fetch(`${API}?email=${email}&password=${password}`)
-//         .then(data => data.json())
-//         .then(arr => arr[0])
-//         .then(user => {
-//             dispatch(actions.setUser(email));
-//             // history.push('/')
-//         })
-//         .catch(dispatch(actions.catchError(true)));
-// };
 
 const table = [];
 const isUser=[];
@@ -28,7 +14,7 @@ const login = (info) => dispatch => {
                 if (item.email === info.email && item.password === info.password) {
                     dispatch(actions.setUser(info.email));
                     table.push(item.email);
-                    localStorage.setItem('user', info.email)
+                    localStorage.setItem('user', info.email);
                 }
 
             });
@@ -68,15 +54,6 @@ const register = (user) => dispatch => {
             } else  dispatch(actions.catchError(true))
 
         })
-        // .catch(err=>console.log(err));
-        // data.forEach(function (item) {
-        //    if(item.email !== user.email){
-        //        dispatch(actions.setUser(user.email));
-        //        table.push(item.email);
-        //        localStorage.setItem('user',user.email);
-        //    }
-        // });return table.length === 0 ? dispatch(actions.catchError(true)) : ''})
-
 };
 
 const postFormData = (data) => dispatch => {
