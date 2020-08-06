@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import validateEmail from "../validateEmail";
 import operations from "../../app/log/duck/operations";
 import {connect} from "react-redux";
+import { useHistory } from 'react-router-dom'
 
 const information={email:'',password:'',password2:''};
 const style = {
@@ -13,6 +14,7 @@ const style = {
 
 function RegisterSite({user,error, register}) {
 
+    let history = useHistory();
     const [info, setInfo]=useState(information);
     const[message,setMessage]=useState({email:false, password:false, password2:false});
     let data={};
@@ -34,8 +36,8 @@ function RegisterSite({user,error, register}) {
         data={"email":info.email, "password":info.password};
         register(data);
         setInfo(information);
-
-        setMessage({email:false, password:false, password2:false})
+        setMessage({email:false, password:false, password2:false});
+        history.push('/')
     }
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import {Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
+import {Route, Switch} from 'react-router'
+
 
 import Home from './components/Home/Home'
 import LoginSite from "./components/LogRegisterSites/LogSite";
@@ -8,12 +10,10 @@ import Header from "./components/Home/header/Header";
 import LogOut from "./components/LogOut";
 import GiveThingsAll from "./components/GiveThingsSite/GiveThingsAll";
 
-import history from "./history";
-
 
 function App() {
   return (
-      <Router history={history}>
+      <Router>
           <Header/>
           <Switch>
               <Route exact path='/'>

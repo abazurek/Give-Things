@@ -1,16 +1,21 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import {NavLink} from "react-router-dom";
 import {connect} from 'react-redux'
 import operations from "../../app/log/duck/operations";
 
 import decoration from '../../assets/Decoration.svg'
 import validateEmail from "../validateEmail";
-import actions from "../../app/log/duck/actions";
+
+import { useHistory } from 'react-router-dom'
+
 
 const information={email:'',password:''};
 
+
+
 function LoginSite({user,error,login}) {
 
+    let history = useHistory();
     const [info, setInfo]=useState(information);
     const [trueOrFalse, setTrueOrFalse] = useState({email: false, password: false});
     const[message,setMessage]=useState(false);
@@ -33,6 +38,7 @@ function LoginSite({user,error,login}) {
         }else setTrueOrFalse(prev => ({...prev, password: false}));
         login(info);
         setInfo(information);
+        history.push('/');
     }
 
 

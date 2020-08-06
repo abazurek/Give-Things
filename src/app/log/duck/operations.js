@@ -1,6 +1,4 @@
 import actions from "./actions";
-import history from "../../../history";
-
 
 const API = 'http://localhost:3004/log';
 
@@ -17,7 +15,6 @@ const login = (info) => dispatch => {
                     dispatch(actions.setUser(info.email));
                     table.push(item.email);
                     localStorage.setItem('user', info.email);
-                    history.push('/')
                 }
 
             });
