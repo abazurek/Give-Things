@@ -38,7 +38,10 @@ function LoginSite({user,error,login}) {
         }else setTrueOrFalse(prev => ({...prev, password: false}));
         login(info);
         setInfo(information);
-        history.push('/');
+        if(user){
+            history.push('/');
+        }
+
     }
 
 
