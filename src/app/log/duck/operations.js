@@ -1,9 +1,9 @@
 import actions from "./actions";
 
+
 const API = 'http://localhost:3004/log';
 
 const table = [];
-const isUser=[];
 let users = [];
 
 const login = (info) => dispatch => {
@@ -24,37 +24,38 @@ const login = (info) => dispatch => {
 };
 
 
+
 const register = (user) => dispatch => {
+    const isUser = [];
     fetch(API)
         .then(data => data.json())
-        .then(arr => users=arr)
-        .then(resp => console.log(resp))
-        .catch(err => console.log(err));
+        .then(arr => {
+            arr.forEach((item) => {
+                if (item.email === user.email) {
+                    isUser.push(item.email);
+                }
+            });
 
-    fetch(API, {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(`data ${data} users ${users}`);
-            if (users) {
-                users.forEach(function (item) {
-                    if (item.email === data.email) {
-                        isUser.push(item.email);
-                    }});
-            }
-            if(isUser.length === 0 ){
+            if(isUser.length === 0){
                 dispatch(actions.setUser(user.email));
                 localStorage.setItem('user', user.email);
-                return
-            } else  dispatch(actions.catchError(true))
 
+                fetch(API, {
+                    method: "POST",
+                    body: JSON.stringify(user),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(response => response.json())
+                    .catch(err => console.log(err));
+
+
+            }else return  dispatch(actions.catchError(true))
         })
+        .catch(err => console.log(err));
 };
+
 
 const postFormData = (data) => dispatch => {
     fetch(API, {

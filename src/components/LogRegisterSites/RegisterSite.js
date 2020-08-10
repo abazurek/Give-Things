@@ -18,6 +18,8 @@ function RegisterSite({user,error, register}) {
     const [info, setInfo]=useState(information);
     const[message,setMessage]=useState({email:false, password:false, password2:false});
     let data={};
+
+
     function submitForm(e) {
         e.preventDefault();
 
@@ -35,9 +37,13 @@ function RegisterSite({user,error, register}) {
         }else setMessage(prev=>({...prev, password2: false}));
         data={"email":info.email, "password":info.password};
         register(data);
-        setInfo(information);
         setMessage({email:false, password:false, password2:false});
-        history.push('/')
+        if(user){
+            setInfo(information);
+            history.push('/');
+
+        }
+
     }
 
 
