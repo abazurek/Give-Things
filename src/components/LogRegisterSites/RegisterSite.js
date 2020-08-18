@@ -19,6 +19,12 @@ function RegisterSite({user,error, register}) {
     const[message,setMessage]=useState({email:false, password:false, password2:false});
     let data={};
 
+    useEffect(function () {
+        if(user){
+            history.push('/');
+        }
+    },[user]);
+
 
     function submitForm(e) {
         e.preventDefault();
@@ -40,7 +46,6 @@ function RegisterSite({user,error, register}) {
         setMessage({email:false, password:false, password2:false});
         if(user){
             setInfo(information);
-            history.push('/');
 
         }
 
@@ -81,7 +86,7 @@ function RegisterSite({user,error, register}) {
     )
 }
 const mapStateToProps = state =>({
-    user: state.log.name,
+    user: state.log.user,
     error:state.log.error
 });
 
