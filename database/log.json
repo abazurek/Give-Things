@@ -4,66 +4,6 @@
       "id": 1,
       "email": "admin@admin.pl",
       "password": "innehaslo"
-    },
-    {
-      "email": "kaczka@kaczka.pl",
-      "password": "aaaaaa",
-      "id": 2
-    },
-    {
-      "email": "admin111@admin.pl",
-      "password": "plplpl",
-      "id": 3
-    },
-    {
-      "email": "admin555@pl.pl",
-      "password": "plplpl",
-      "id": 4
-    },
-    {
-      "email": "ka@pl.pl",
-      "password": "plplpl",
-      "id": 5
-    },
-    {
-      "email": "pl@pl.pl",
-      "password": "plplpl",
-      "id": 6
-    },
-    {
-      "email": "admin555555@pl.pl",
-      "password": "plplpl",
-      "id": 7
-    },
-    {
-      "email": "admin44@admin.pl",
-      "password": "plplpl",
-      "id": 8
-    },
-    {
-      "email": "admin4554@admin.pl",
-      "password": "plplpl",
-      "id": 9
-    },
-    {
-      "email": "plpk@pl.pl",
-      "password": "plplpl",
-      "id": 10
-    },
-    {
-      "email": "kkk@pl.pl",
-      "password": "plplpl",
-      "id": 11
-    },
-    {
-      "email": "admi65432n@admin.pl",
-      "password": "plplpl",
-      "id": 12
-    },
-    {
-      "email": "myjthgrtew@pl.pl",
-      "password": "plplpl",
-      "id": 13
     }
   ]
 }
