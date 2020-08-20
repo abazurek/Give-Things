@@ -4,9 +4,11 @@ import NavSection from "./NavSection";
 
 export default function Header() {
     return(
-        <header className='container'>
-            <LogSection/>
-            <NavSection/>
+        <header className=' header'>
+            <div className='container'>
+                <LogSection/>
+                <NavSection/>
+            </div>
         </header>
     )
 }
