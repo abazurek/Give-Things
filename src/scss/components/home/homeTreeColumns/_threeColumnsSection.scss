@@ -3,7 +3,12 @@
   background-image: url("../../../../assets/3-Columns-Background.png");
   .container{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    @media #{$media-desktop,$media-big-screen} {
+      flex-direction: row;
+      justify-content: space-between;
+    }
     .infoBox{
       display: flex;
       flex-direction: column;

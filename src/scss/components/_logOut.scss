@@ -4,8 +4,9 @@
   align-items: center;
 
   h2{
-    margin-top: 3.075em;
+    margin-top: calc(3.075em + #{$header-height});
     font-size: 2.5em;
+    text-align: center;
   }
   img{
     margin-top: 1.5625em;

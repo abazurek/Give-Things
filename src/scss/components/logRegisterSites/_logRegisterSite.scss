@@ -4,7 +4,7 @@
   align-items: center;
 
   .logRegisterTitleBox{
-    margin-top: 7.6875em;
+    margin-top: calc(7.6875em + #{$header-height});
     text-align: center;
     h2{
       letter-spacing: -0.8px;

@@ -1,2 +1,20 @@
 @import "logSection";
 @import "navSection";
+.header{
+  position: absolute;
+  width: 100%;
+
+  .container{
+    display: flex;
+    justify-content: space-between;
+    //align-items: center;
+    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+      display: block;
+    }
+
+    svg{
+      height: 30px;
+      width: 30px;
+    }
+  }
+}

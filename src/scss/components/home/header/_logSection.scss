@@ -1,7 +1,15 @@
 .logList{
-  display: flex;
-  justify-content: flex-end;
 
+  display: flex;
+  flex-direction: column;
+  @media #{$media-tablet,$media-desktop,$media-big-screen }
+  {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  div{
+    display: flex;
+  }
   li{
     margin-top: 40px;
     margin-left: 10px;
