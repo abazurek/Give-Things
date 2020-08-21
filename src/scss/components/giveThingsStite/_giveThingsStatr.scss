@@ -1,8 +1,18 @@
 .giveThingsSite {
   width: 100vw;
   background-image: url("../../../assets/Form-Hero-Image.jpg");
-  background-size: contain;
   background-repeat: no-repeat;
+  background-position-x: -700px;
+
+  @media #{$media-tablet} {
+    background-position-x: -650px;
+  }
+  @media #{$media-desktop} {
+    background-position-x: -350px;
+  }
+  @media #{$media-big-screen} {
+    background-position-x: 0;
+  }
 
   .container {
     display: flex;

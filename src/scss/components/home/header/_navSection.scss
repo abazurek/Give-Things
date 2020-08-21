@@ -1,6 +1,7 @@
 .navList{
   display: flex;
   justify-content: flex-end;
+
   li{
     padding: 9px 20px;
     margin-left: 15px;
@@ -9,6 +10,17 @@
     }
     &:first-child{
       border: 0.75px solid $color-font-base;
+    }
+  }
+}
+.burger-box{
+  margin-top: 2em;
+  .burger-list{
+    background: rgba(255, 255, 255, 0.68);
+    margin-top: 0.5em;
+    flex-direction: column;
+    li{
+      margin:0;
     }
   }
 }

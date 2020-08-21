@@ -9,12 +9,24 @@ import RegisterSite from "./components/LogRegisterSites/RegisterSite";
 import Header from "./components/Home/header/Header";
 import LogOut from "./components/LogOut";
 import GiveThingsAll from "./components/GiveThingsSite/GiveThingsAll";
+import {useMediaQuery} from "react-responsive";
 
 
 function App() {
+
+    const isTablet = useMediaQuery({
+        query: '(min-device-width: 768px) and (max-device-width: 1223px)'
+    });
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-device-width: 1224px)'
+    });
+    const isBigScreen = useMediaQuery({
+        query:'(min-device-width:1371px)'
+    });
+
   return (
       <Router>
-          <Header/>
+          <Header mediaTablet={isTablet} mediaDesktop={isDesktopOrLaptop} mediaBigScreen={isBigScreen}/>
           <Switch>
               <Route exact path='/'>
                   <Home/>
