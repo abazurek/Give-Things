@@ -3,7 +3,7 @@ import React from "react";
 import decoration from './../../../assets/Decoration.svg'
 import signature from './../../../assets/Signature.svg'
 
-export default function AboutUs() {
+export default function AboutUs({ mediaDesktop, mediaBigScreen}) {
 
     return (
         <section id='about-us' className='aboutUsSection'>
@@ -19,7 +19,10 @@ export default function AboutUs() {
                 </div>
 
             </div>
-            <div className='imgBox'/>
+            {(mediaDesktop || mediaBigScreen) ?
+                <div className='imgBox'/>
+                : ''
+            }
         </section>
     )
 }

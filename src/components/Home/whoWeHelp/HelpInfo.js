@@ -28,7 +28,7 @@ const organizations = {
                 what: 'ubrania, meble, zabawki'
             },
             {
-                name: 'Fundacja "9"',
+                name: 'Fundacja "6"',
                 mission: "Pomoc dla osób nie posiadających miejsca zamieszkania.",
                 what: 'ubrania, jedzenie, ciepłe koce'
             },
