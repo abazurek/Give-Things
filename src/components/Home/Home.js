@@ -7,7 +7,7 @@ import AboutUs from "./aboutUs/AboutUsSection";
 import WhoWeHelp from "./whoWeHelp/WhoWeHelp";
 import Contact from "./contact/Contact";
 
-function Home() {
+function Home({mediaTablet, mediaDesktop, mediaBigScreen}) {
 
     return(
         <>
@@ -16,7 +16,7 @@ function Home() {
                 <ThreeColumns/>
             </section>
             <FourStepsSection/>
-            <AboutUs/>
+            <AboutUs mediaTablet={mediaTablet} mediaDesktop={mediaDesktop} mediaBigScreen={mediaBigScreen}/>
             <WhoWeHelp/>
             <Contact/>
         </>

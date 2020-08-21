@@ -16,8 +16,12 @@
     width: 100%;
     .singleTextBox{
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      @media #{$media-desktop,$media-big-screen } {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
       .textBoxLeft{
         display: flex;
         flex-direction: column;
@@ -26,7 +30,13 @@
         span{
           &:first-child{
             font-size:1.625em;
-            margin-bottom: 0.23em;
+            margin-bottom: 0.7em;
+            text-align: center;
+            @media #{$media-desktop,$media-big-screen } {
+              margin-bottom: 0.23em;
+              text-align: left;
+            }
+
           }
           &:last-child{
             font-size: 1.125em;

@@ -29,7 +29,7 @@ function App() {
           <Header mediaTablet={isTablet} mediaDesktop={isDesktopOrLaptop} mediaBigScreen={isBigScreen}/>
           <Switch>
               <Route exact path='/'>
-                  <Home/>
+                  <Home mediaTablet={isTablet} mediaDesktop={isDesktopOrLaptop} mediaBigScreen={isBigScreen}/>
               </Route>
               <Route path='/login'>
                   <LoginSite/>
