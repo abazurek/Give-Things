@@ -24,9 +24,13 @@ function App() {
         query:'(min-device-width:1371px)'
     });
 
+    const isSmall = useMediaQuery({
+        query:'(max-device-width:400px)'
+    })
+
   return (
       <Router>
-          <Header mediaTablet={isTablet} mediaDesktop={isDesktopOrLaptop} mediaBigScreen={isBigScreen}/>
+          <Header mediaTablet={isTablet} mediaDesktop={isDesktopOrLaptop} mediaBigScreen={isBigScreen} mediaSmall={isSmall}/>
           <Switch>
               <Route exact path='/'>
                   <Home mediaTablet={isTablet} mediaDesktop={isDesktopOrLaptop} mediaBigScreen={isBigScreen}/>

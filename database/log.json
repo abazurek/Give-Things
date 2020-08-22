@@ -4,16 +4,6 @@
       "id": 1,
       "email": "admin@admin.pl",
       "password": "innehaslo"
-    },
-    {
-      "email": "gg@pl.pl",
-      "password": "plplpl",
-      "id": 2
-    },
-    {
-      "email": "gg44@pl.pl",
-      "password": "plplpl",
-      "id": 3
     }
   ]
 }

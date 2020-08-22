@@ -1,13 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import {Link} from "react-scroll"
 import {NavLink} from "react-router-dom";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
-function NavSection({mediaTablet, mediaDesktop, mediaBigScreen}) {
-
-    const [active, setActive] = useState(false);
+function NavSection({mediaTablet, mediaDesktop, mediaBigScreen, active, setActive}) {
 
 
     function clickBurger(e) {
