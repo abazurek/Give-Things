@@ -3,9 +3,13 @@
   background-image: url("../../../../assets/Background-Form.jpg");
   padding-top: 2.25em;
   min-height: 883px;
-  position: relative;
-  height: 919px;
-
+  height: 1050px;
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
   input, textarea {
     color: $color-font-base;
     background: none;
@@ -30,6 +34,8 @@
 
     label {
       margin-bottom: 2.625em;
+      display: flex;
+      align-items: center;
     }
 
     input[type='radio'] {
@@ -63,9 +69,15 @@
   }
 
   .buttons-box {
-    position: absolute;
     bottom: 50px;
-
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding-bottom: 50px;
+    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+      display: block;
+      width: auto;
+    }
   }
   button {
     background: none;
@@ -75,7 +87,11 @@
     padding: 1em 2.625em;
 
     &:first-of-type {
-      margin-right: 50px;
+      margin-bottom: 1em;
+      @media #{$media-tablet,$media-desktop,$media-big-screen } {
+        margin-bottom: 0;
+        margin-right: 50px;
+      }
     }
 
     &:focus {

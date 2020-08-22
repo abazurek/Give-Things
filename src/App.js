@@ -45,7 +45,7 @@ function App() {
                   <LogOut/>
               </Route>
               <Route path='/giveThings'>
-                  <GiveThingsAll/>
+                  <GiveThingsAll mediaTablet={isTablet} mediaDesktop={isDesktopOrLaptop} mediaBigScreen={isBigScreen}/>
               </Route>
           </Switch>
       </Router>
