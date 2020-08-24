@@ -24,7 +24,7 @@ body {
 .container{
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
+
   @media #{$media-big-screen} {
     max-width: 1400px;
     padding: 0 15px;
