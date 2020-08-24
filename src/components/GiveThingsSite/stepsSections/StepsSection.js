@@ -201,7 +201,6 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
                 {isComponent ?
                     <div className='container'>
                         {count < 5 ? <div><span className='num-of-step'>Krok {count}/5</span> {component}</div>:  {component}}
-
                         <div className='buttons-box'>
                             <p style={style}>{message}</p>
                             {count !== 1 ? <button onClick={backClick}>Wstecz</button> : ""}
