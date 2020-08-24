@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import actions from "../../../app/giveForms/duck/actions";
 import createCustomSelect from "./customSelect";
 
-const ThirdStep = ({title, who, localization,organization, setLocalization, setWhoAdd, setWhoRemove, setOrganization}) => {
+const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd, setWhoRemove, setOrganization}) => {
 
 
     const giveSelected =()=>{
@@ -18,6 +18,7 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
 
     useEffect(function () {
         createCustomSelect();
+
         const selectItems= document.querySelector('.select-items');
         const children = selectItems.childNodes;
         const selectSelected = document.querySelector('.select-selected');
@@ -99,7 +100,6 @@ const ThirdStep = ({title, who, localization,organization, setLocalization, setW
 };
 
 const mapStateToProps = state => ({
-    localization: state.giveForms.localization,
     who: state.giveForms.who,
     organization: state.giveForms.organization
 

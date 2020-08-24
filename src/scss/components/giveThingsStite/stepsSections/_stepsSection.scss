@@ -3,7 +3,7 @@
   background-image: url("../../../../assets/Background-Form.jpg");
   padding-top: 2.25em;
   min-height: 883px;
-  height: 1050px;
+  height: 1150px;
 .container{
   height: 100%;
   display: flex;
@@ -71,12 +71,14 @@
   .buttons-box {
     bottom: 50px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 60%;
     padding-bottom: 50px;
+    padding-left: 1em;
     @media #{$media-tablet,$media-desktop,$media-big-screen } {
       display: block;
       width: auto;
+      padding-left: 0;
     }
   }
   button {
@@ -87,7 +89,7 @@
     padding: 1em 2.625em;
 
     &:first-of-type {
-      margin-bottom: 1em;
+      margin-top: 1em;
       @media #{$media-tablet,$media-desktop,$media-big-screen } {
         margin-bottom: 0;
         margin-right: 50px;
