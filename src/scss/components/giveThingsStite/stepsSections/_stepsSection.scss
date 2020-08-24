@@ -2,8 +2,10 @@
 .stepsSection {
   background-image: url("../../../../assets/Background-Form.jpg");
   padding-top: 2.25em;
-  min-height: 883px;
-  height: 1150px;
+  position: relative;
+  @media #{$media-tablet,$media-desktop,$media-big-screen } {
+    min-height: 883px;
+  }
 .container{
   height: 100%;
   display: flex;
@@ -30,8 +32,9 @@
   form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 7.25em;
-
+    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+      margin-bottom: 7.25em;
+    }
     label {
       margin-bottom: 2.625em;
       display: flex;
@@ -75,10 +78,14 @@
     width: 60%;
     padding-bottom: 50px;
     padding-left: 1em;
+    margin-top: 4.5em;
     @media #{$media-tablet,$media-desktop,$media-big-screen } {
       display: block;
       width: auto;
       padding-left: 0;
+      position: absolute;
+      bottom: 0;
+      margin-top: 0;
     }
   }
   button {
@@ -219,19 +226,25 @@
       display: inline-block;
 
       input {
-        width: 100%;
+       width: 60%;
         font-size: 1em;
         padding: 0 0.5em;
         height: 40px;
         font-family: $font-base;
         font-weight: lighter;
+        @media #{$media-tablet,$media-desktop,$media-big-screen } {
+          width: 100%;
+        }
       }
     }
   }
 
   .fourth-forms {
     display: flex;
-
+    flex-direction: column;
+    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+      flex-direction: row;
+    }
     form {
       label {
         width: 392px;
