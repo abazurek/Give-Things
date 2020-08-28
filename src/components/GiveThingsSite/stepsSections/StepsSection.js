@@ -12,7 +12,6 @@ import ThanksStep from "./ThanksStep";
 
 import actionsForm from "../../../app/giveForms/duck/actions";
 import actionsPost from "../../../app/log/duck/actions";
-import operations from "../../../app/log/duck/operations";
 
 
 const titles = {
@@ -200,8 +199,10 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
             <section className='stepsSection'>
                 {isComponent ?
                     <div className='container'>
-                        {count < 5 ? <div><span className='num-of-step'>Krok {count}/5</span> {component}</div>:  {component}}
-
+                        <div>
+                            {count < 5 ? <span className='num-of-step'>Krok {count}/5</span> : '' }
+                            {component}
+                        </div>
                         <div className='buttons-box'>
                             <p style={style}>{message}</p>
                             {count !== 1 ? <button onClick={backClick}>Wstecz</button> : ""}
