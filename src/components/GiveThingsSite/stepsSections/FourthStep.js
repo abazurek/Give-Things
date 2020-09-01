@@ -1,6 +1,7 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { connect } from "react-redux";
 import actions from "../../../app/giveForms/duck/actions";
+
 
 const FourthStep = ({
   title,
@@ -30,7 +31,9 @@ const FourthStep = ({
             <input
               type="text"
               value={street}
-              onChange={({ target }) => setStreet(target.value)}
+              onChange={({ target }) => {
+                localStorage.setItem('street',target.value);
+                setStreet(target.value)}}
             />
           </label>
           <label>
@@ -38,7 +41,9 @@ const FourthStep = ({
             <input
               type="text"
               value={city}
-              onChange={({ target }) => setCity(target.value)}
+              onChange={({ target }) => {
+                localStorage.setItem('city',target.value);
+                setCity(target.value)}}
             />
           </label>
           <label>
@@ -46,7 +51,9 @@ const FourthStep = ({
             <input
               type="postal"
               value={postCode}
-              onChange={({ target }) => setPostCode(target.value)}
+              onChange={({ target }) => {
+                localStorage.setItem('postCode',target.value);
+                setPostCode(target.value)}}
             />
           </label>
           <label>
@@ -54,7 +61,9 @@ const FourthStep = ({
             <input
               type="number"
               value={phone}
-              onChange={({ target }) => setPhone(target.value)}
+              onChange={({ target }) => {
+                localStorage.setItem('phone',target.value);
+                setPhone(target.value)}}
             />
           </label>
         </form>
@@ -65,7 +74,9 @@ const FourthStep = ({
             <input
               type="date"
               value={date}
-              onChange={({ target }) => setDate(target.value)}
+              onChange={({ target }) => {
+                localStorage.setItem('data',target.value);
+                setDate(target.value)}}
             />
           </label>
           <label>
@@ -73,14 +84,18 @@ const FourthStep = ({
             <input
               type="time"
               value={time}
-              onChange={({ target }) => setTime(target.value)}
+              onChange={({ target }) => {
+                localStorage.setItem('time',target.value);
+                setTime(target.value)}}
             />
           </label>
           <label>
             <span>Uwagi dla kuriera</span>
             <textarea
               value={message}
-              onChange={({ target }) => setMessage(target.value)}
+              onChange={({ target }) => {
+                localStorage.setItem('message',target.value);
+                setMessage(target.value)}}
             />
           </label>
         </form>

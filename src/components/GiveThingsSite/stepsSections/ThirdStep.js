@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import actions from "../../../app/giveForms/duck/actions";
 import createCustomSelect from "./customSelect";
 
-const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd, setWhoRemove, setOrganization}) => {
+const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd,setNewWho, setWhoRemove, setOrganization}) => {
 
 
     const giveSelected =()=>{
@@ -12,7 +12,6 @@ const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd, setWhoR
             setLocalization(selected.innerText);
             localStorage.setItem('localization', selected.innerText)
         }
-
     };
 
 
@@ -31,35 +30,39 @@ const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd, setWhoR
         });
 
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const who= localStorage.getItem('who');
+        const whoLocal = localStorage.getItem('who');
         let whoTable=[];
-        if(who){
-            whoTable=who.split(',');
+        if(whoLocal){
+            console.log(whoLocal);
+            // whoLocal.forEach(item=>whoTable.push(item));
+            console.log(whoTable)
+            // whoTable=who.split(',');
         }
+        console.log(whoTable)
         for (let i = 0; i < whoTable.length; i++) {
             checkboxes.forEach(function (item) {
                 if (item.value === whoTable[i]) {
                     item.setAttribute('checked', 'checked');
-                    setWhoAdd(whoTable[i])
+
                 }
             })
         }
 
-    }, []);
+    }, [who]);
 
 
 
     function clickedCheckbox({target}) {
+        console.log(who)
         if (who.includes(target.value)) {
             setWhoRemove(target.value);
             return
         }
-
         return setWhoAdd(target.value);
     }
 
     if(who !== ''){
-        localStorage.setItem('who', who);
+        localStorage.setItem('who',who);
     }
     return (
         <div>
@@ -107,6 +110,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setLocalization: value => dispatch(actions.setLocalization(value)),
     setWhoAdd: value => dispatch(actions.addWho(value)),
+    setNewWho: value => dispatch(actions.newWho(value)),
     setWhoRemove: value => dispatch(actions.removeWho(value)),
     setOrganization: value => dispatch(actions.setOrganization(value))
 });

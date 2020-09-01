@@ -202,7 +202,7 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
             <div className="container">
               {count < 5 ? (
                 <div id="stepsNum">
-                  <span className="num-of-step">Krok {count}/5</span>
+                  <span className="num-of-step">Krok {count}/5</span>{" "}
                   {component}
                 </div>
               ) : (

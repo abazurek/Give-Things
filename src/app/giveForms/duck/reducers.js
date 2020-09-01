@@ -5,7 +5,7 @@ const clear = {
     bags: '',
     localization: '',
     who: '',
-    organization:'',
+    organization: '',
     street: '',
     city: '',
     postCode: '',
@@ -15,7 +15,7 @@ const clear = {
     message: ''
 };
 
-const initialState=clear;
+const initialState = clear;
 
 function giveFormsReducer(state = initialState, action) {
     switch (action.type) {
@@ -35,9 +35,13 @@ function giveFormsReducer(state = initialState, action) {
             return {
                 ...state, who: [...state.who, action.who]
             };
+        case types.NEW_WHO:
+            return {
+                ...state, who: [action.who]
+            };
         case types.REMOVE_WHO:
             return {
-                who: state.who.filter((item)=>item!==action.who)
+                who: state.who.filter((item) => item !== action.who)
             };
         case types.SET_ORGANIZATION:
             return {
