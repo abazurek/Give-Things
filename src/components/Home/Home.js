@@ -15,7 +15,7 @@ function Home({mediaTablet, mediaDesktop, mediaBigScreen}) {
             <section className='threeColumnsSection'>
                 <ThreeColumns/>
             </section>
-            <FourStepsSection/>
+            <FourStepsSection />
             <AboutUs mediaTablet={mediaTablet} mediaDesktop={mediaDesktop} mediaBigScreen={mediaBigScreen}/>
             <WhoWeHelp/>
             <Contact/>

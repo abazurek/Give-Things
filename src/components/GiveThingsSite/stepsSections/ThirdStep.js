@@ -18,6 +18,7 @@ const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd, setWhoR
 
     useEffect(function () {
         createCustomSelect();
+
         const selectItems= document.querySelector('.select-items');
         const children = selectItems.childNodes;
         const selectSelected = document.querySelector('.select-selected');
