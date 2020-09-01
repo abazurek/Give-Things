@@ -1,8 +1,21 @@
 
 .stepsSection {
   background-image: url("../../../../assets/Background-Form.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   padding-top: 2.25em;
-  min-height: 1150px;
+  @media #{$media-tablet, $media-desktop,$media-big-screen} {
+    height: 883px;
+  }
+  @media #{$media-big-screen } {
+    background-position-x:right;
+  }
+  @media #{$media-desktop,} {
+    background-position-x: -500px;
+  }
+  @media #{$media-tablet} {
+    background-position-x: -750px;
+  }
 
   .container {
     height: 100%;
@@ -23,10 +36,15 @@
   }
 
   .step-title {
-    font-size: 1.6em;
-    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+    font-size: 1.4em;
+    max-width: 90%;
+    @media #{$media-desktop,$media-big-screen } {
      font-size: 2.25em;
     }
+    @media #{$media-tablet } {
+     font-size: 1.8em;
+    }
+
     font-weight: bolder;
     margin: 1.95em 0 1.11em 0;
   }
@@ -34,9 +52,9 @@
   form {
     display: flex;
     flex-direction: column;
-   margin-bottom: 1.7em;
+   //margin-bottom: 1.7em;
     @media #{$media-desktop,$media-big-screen } {
-      margin-bottom: 7.25em;
+      //margin-bottom: 7.25em;
     }
     label {
       margin-bottom: 1.5em;
@@ -82,17 +100,15 @@
     bottom: 50px;
     display: flex;
     flex-direction: column-reverse;
-    width: 60%;
+    width: 50%;
     padding-bottom: 50px;
-    padding-left: 1em;
+    a{
+      text-decoration: none;
+    }
     @media #{$media-tablet,$media-desktop,$media-big-screen } {
       display: block;
       width: auto;
       padding-left: 0;
-      padding-left: 0;
-      position: absolute;
-      bottom: 0;
-      margin-top: 0;
     }
   }
 
@@ -104,6 +120,9 @@
     padding: 1em 2.625em;
     width: 100%;
     font-family: $font-base;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
     @media #{$media-tablet,$media-desktop,$media-big-screen } {
       width: auto;
     }
@@ -121,9 +140,14 @@
   }
 
   .box {
-    font-size: 1.5em;
+    font-size: 1.1em;
     font-family: $font-base;
-
+    @media #{$media-tablet} {
+      font-size: 1.2em;
+    }
+    @media #{ $media-desktop,$media-big-screen} {
+      font-size: 1.5em;
+    }
     h3 {
       font-weight: bolder;
       margin-bottom: 0.83em;
@@ -269,7 +293,7 @@
     @media #{$media-tablet}{
       align-items: center;
     }
-    @media #{$media-desktop,$media-big-screen } {
+    @media #{$media-tablet, $media-desktop,$media-big-screen } {
       flex-direction: row;
     }
     form {
@@ -278,7 +302,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        @media #{$media-tablet,pogo$media-desktop,$media-big-screen } {
+        @media #{$media-desktop,$media-big-screen } {
           flex-direction: row;
           justify-content: space-between;
         }
@@ -396,6 +420,7 @@
         cursor: pointer;
         margin: 100px 0 0 0;
       }
+
     }
   }
 }

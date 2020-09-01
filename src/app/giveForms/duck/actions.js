@@ -4,6 +4,7 @@ const setThing = thing =>({type:types.SET_THING, thing});
 const setBags = bags =>({type:types.SET_BAGS, bags});
 const setLocalization = localization =>({type:types.SET_LOCALIZATION, localization});
 const addWho = who =>({type:types.ADD_WHO, who});
+const newWho = who =>({type:types.NEW_WHO, who});
 const removeWho = who =>({type:types.REMOVE_WHO, who});
 const setOrganization = organization =>({type:types.SET_ORGANIZATION, organization});
 const setStreet = street => ({type: types.SET_STREET, street});
@@ -20,6 +21,7 @@ export default {
     setBags,
     setLocalization,
     addWho,
+    newWho,
     removeWho,
     setOrganization,
     setStreet,
