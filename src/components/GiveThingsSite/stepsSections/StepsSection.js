@@ -197,16 +197,18 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     return (
       <section className="giveThingFormsBox">
         {count < 5 ? <ImportantSection info={information} /> : ""}
-        <section className="stepsSection" id="stepsSection">
+        <section className="stepsSection">
           {isComponent ? (
             <div className="container">
               {count < 5 ? (
                 <div id="stepsNum">
-                  <span className="num-of-step">Krok {count}/5</span>{" "}
+                  <span className="num-of-step">Krok {count}/5</span>
                   {component}
                 </div>
               ) : (
-                { component }
+                  <div id="stepsNum">
+                      {component}
+                  </div>
               )}
 
               <div className="buttons-box">
