@@ -23,7 +23,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2.5em 4.203125em 0.5em;
+      padding: 2em 0;
+      width: 100%;
+      @media #{$media-tablet,$media-desktop,$media-big-screen } {
+        padding: 2.5em 4.203125em 0.5em;
+        width: auto;
+      }
       label{
         display: flex;
         flex-direction: column;
@@ -47,7 +52,13 @@
     background-color: white;
     width: 31.5em;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    align-items: center;
+    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+      flex-direction: row;
+      justify-content: space-between;
+
+    }
     button{
       background: none;
       border: none;
@@ -55,6 +66,7 @@
       font-family: $font-base;
       font-weight: 300;
       cursor: pointer;
+      margin-bottom: 1em;
     }
     .submit{
       border: 0.75px solid $color-font-base;
