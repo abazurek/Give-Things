@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
 import {NavLink} from "react-router-dom";
+import {Link} from 'react-scroll';
 
 import ImportantSection from "../ImportantSection";
 import FirstStep from "./FisrtStep";
@@ -12,7 +13,6 @@ import ThanksStep from "./ThanksStep";
 
 import actionsForm from "../../../app/giveForms/duck/actions";
 import actionsPost from "../../../app/log/duck/actions";
-import operations from "../../../app/log/duck/operations";
 
 
 const titles = {
@@ -71,7 +71,7 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     const [count, setCount] = useState(1);
     const [message, setMessage] = useState('');
     const [isComponent, setIsComponent] = useState(true);
-    let component = '';
+    let component;
     let information = '';
 
     let data = {};
@@ -195,31 +195,46 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     };
 
     return (
-        <section className='giveThingFormsBox'>
-            {count < 5 ? <ImportantSection info={information}/> : ''}
-            <section className='stepsSection'>
-                {isComponent ?
-                    <div className='container'>
-                        <div>
-                            {count < 5 ? <span className='num-of-step'>Krok {count}/5</span> : '' }
-                            {component}
-                        </div>
-                        <div className='buttons-box'>
-                            <p style={style}>{message}</p>
-                            {count !== 1 ? <button onClick={backClick}>Wstecz</button> : ""}
-                            {count !== 5 ? <button onClick={onClick}>Dalej</button> :
-                                <NavLink to='/thanksStep'>
-                                    <button onClick={submitInformation}>Potwierdzam</button>
-                                </NavLink>}
-                        </div>
-                    </div>
-                    : <ThanksStep/>
-                }
+      <section className="giveThingFormsBox">
+        {count < 5 ? <ImportantSection info={information} /> : ""}
+        <section className="stepsSection" id="stepsSection">
+          {isComponent ? (
+            <div className="container">
+              {count < 5 ? (
+                <div id="stepsNum">
+                  <span className="num-of-step">Krok {count}/5</span>{" "}
+                  {component}
+                </div>
+              ) : (
+                { component }
+              )}
 
-
-            </section>
+              <div className="buttons-box">
+                <p style={style}>{message}</p>
+                {count !== 1 ? (
+                  <Link to="stepsNum" smooth={true}>
+                    <button onClick={backClick}>Wstecz</button>
+                  </Link>
+                ) : (
+                  ""
+                )}
+                {count !== 5 ? (
+                  <Link to="stepsNum" smooth={true}>
+                    <button onClick={onClick}>Dalej</button>
+                  </Link>
+                ) : (
+                  <NavLink to="/thanksStep">
+                    <button onClick={submitInformation}>Potwierdzam</button>
+                  </NavLink>
+                )}
+              </div>
+            </div>
+          ) : (
+            <ThanksStep />
+          )}
         </section>
-    )
+      </section>
+    );
 };
 
 

@@ -2,16 +2,15 @@
 .stepsSection {
   background-image: url("../../../../assets/Background-Form.jpg");
   padding-top: 2.25em;
-  position: relative;
-  @media #{$media-tablet,$media-desktop,$media-big-screen } {
-    min-height: 883px;
+  min-height: 1150px;
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
-.container{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+
   input, textarea {
     color: $color-font-base;
     background: none;
@@ -24,7 +23,10 @@
   }
 
   .step-title {
-    font-size: 2.25em;
+    font-size: 1.6em;
+    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+     font-size: 2.25em;
+    }
     font-weight: bolder;
     margin: 1.95em 0 1.11em 0;
   }
@@ -32,11 +34,16 @@
   form {
     display: flex;
     flex-direction: column;
-    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+   margin-bottom: 1.7em;
+    @media #{$media-desktop,$media-big-screen } {
       margin-bottom: 7.25em;
     }
     label {
-      margin-bottom: 2.625em;
+      margin-bottom: 1.5em;
+      @media #{$media-desktop,$media-big-screen } {
+        margin-bottom: 2.625em;
+      }
+
       display: flex;
       align-items: center;
     }
@@ -78,27 +85,31 @@
     width: 60%;
     padding-bottom: 50px;
     padding-left: 1em;
-    margin-top: 4.5em;
     @media #{$media-tablet,$media-desktop,$media-big-screen } {
       display: block;
       width: auto;
+      padding-left: 0;
       padding-left: 0;
       position: absolute;
       bottom: 0;
       margin-top: 0;
     }
   }
+
   button {
     background: none;
     border: 0.75px solid $color-font-base;
-    font-weight: lighter;
+    font-weight: 300;
     font-size: 1.5em;
     padding: 1em 2.625em;
-
+    width: 100%;
+    font-family: $font-base;
+    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+      width: auto;
+    }
     &:first-of-type {
       margin-top: 1em;
       @media #{$media-tablet,$media-desktop,$media-big-screen } {
-        margin-bottom: 0;
         margin-right: 50px;
       }
     }
@@ -108,13 +119,16 @@
       border: 0.75px solid $color-font-base;;
     }
   }
+
   .box {
     font-size: 1.5em;
     font-family: $font-base;
+
     h3 {
       font-weight: bolder;
       margin-bottom: 0.83em;
     }
+
     span {
       margin-right: 1em;
     }
@@ -125,16 +139,19 @@
       color: $color-font-base;
       display: inline-block;
       font-weight: lighter;
+
       select {
         display: none;
       }
 
     }
-    .select-selected{
+
+    .select-selected {
       background: none;
       border: $border-base;
       padding: 8px 18px;
-      &:after{
+
+      &:after {
         position: absolute;
         content: "";
         background-image: url("../../../../assets/Icon-Arrow-Down.svg");
@@ -142,16 +159,19 @@
         right: 0;
         width: 57px;
         height: 26px;
-        border:none;
+        border: none;
       }
     }
+
     .select-selected.select-arrow-active:after {
       background-image: url("../../../../assets/Icon-Arrow-Up.svg");
     }
-    .select-items div,.select-selected {
+
+    .select-items div, .select-selected {
       cursor: pointer;
-      line-height:1.375em;
+      line-height: 1.375em;
     }
+
     .select-items {
       position: absolute;
       background: #E8E9E4 0 0 no-repeat padding-box;;
@@ -163,14 +183,15 @@
       flex-direction: column;
       align-items: center;
       z-index: 99;
-      div{
+
+      div {
         padding: 2px 0;
       }
     }
+
     .select-hide {
       display: none;
     }
-
 
 
     .box-help {
@@ -226,7 +247,10 @@
       display: inline-block;
 
       input {
-       width: 60%;
+        width: 80%;
+        @media #{$media-tablet,$media-desktop,$media-big-screen } {
+        width: 100%;
+        }
         font-size: 1em;
         padding: 0 0.5em;
         height: 40px;
@@ -242,17 +266,28 @@
   .fourth-forms {
     display: flex;
     flex-direction: column;
-    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+    @media #{$media-tablet}{
+      align-items: center;
+    }
+    @media #{$media-desktop,$media-big-screen } {
       flex-direction: row;
     }
     form {
       label {
         width: 392px;
         display: flex;
-        justify-content: space-between;
-
+        flex-direction: column;
+        align-items: flex-start;
+        @media #{$media-tablet,pogo$media-desktop,$media-big-screen } {
+          flex-direction: row;
+          justify-content: space-between;
+        }
         span {
           max-width: 114px;
+          margin-bottom: 0.5em;
+          @media #{$media-desktop,$media-big-screen } {
+          margin-bottom: 0;
+          }
         }
 
         input, textarea {
@@ -267,42 +302,53 @@
       }
 
       &:first-of-type {
-        margin-right: 152px;
+        @media #{$media-desktop,$media-big-screen } {
+          margin-right: 152px;
+        }
+
       }
     }
   }
 
-  .fifthStep{
+  .fifthStep {
     h1 {
       font-size: 2.25em;
       margin-bottom: 1.25em;
       font-weight: bolder;
+      @media #{$media-desktop,$media-big-screen } {
+        margin-bottom: 0;
+      }
     }
-    span{
+
+    span {
       margin: 0;
     }
-    .summaryLine{
+
+    .summaryLine {
       margin-bottom: 0.83em;
       display: flex;
       align-items: center;
-      img{
+
+      img {
         margin-right: 0.8em;
       }
     }
-    .summaryForms{
+
+    .summaryForms {
       margin-top: 1.25em;
       display: flex;
       justify-content: space-between;
       max-width: 800px;
 
-      .summarySingleBox{
-        div{
+      .summarySingleBox {
+        div {
           font-weight: lighter;
           line-height: 1.33em;
           margin-bottom: 0.83em;
           display: flex;
           align-items: center;
-          p{
+
+          p {
             display: inline-block;
             width: 136px;
           }
@@ -312,28 +358,41 @@
     }
   }
 
-  .thanksBox{
+  .thanksBox {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    div{
+
+    div {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       max-width: 630px;
       font-weight: lighter;
-      p{
+
+      p {
         text-align: center;
         font-size: 2.5em;
         line-height: 1.25em;
         letter-spacing: -0.8px;
       }
-      img{
+
+      img {
         margin-top: 1.5625em;
       }
-      button{
+
+      a {
+        width: 50%;
+        font-size: 0.6em;
+        @media #{$media-tablet,$media-desktop,$media-big-screen } {
+          width: auto;
+          font-size: 1em;
+        }
+      }
+
+      button {
         cursor: pointer;
         margin: 100px 0 0 0;
       }
