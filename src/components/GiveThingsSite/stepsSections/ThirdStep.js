@@ -48,7 +48,7 @@ const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd,setNewWh
             })
         }
 
-    }, [who]);
+    }, []);
 
 
 
