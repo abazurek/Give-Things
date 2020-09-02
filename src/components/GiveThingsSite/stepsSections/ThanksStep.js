@@ -11,7 +11,7 @@ export default function ThanksStep() {
                     <p>Dziękujemy za przesłanie formularza</p>
                     <p>Na maila prześlemy wszelkie informacje o odbiorze.</p>
                     <img src={decoration} alt='decoration icon'/>
-                    <NavLink to='/'><button>Powrót do strony głównej</button></NavLink>
+                    <NavLink to='/'><button className='back-mainSite'>Powrót do strony głównej</button></NavLink>
                 </div>
 
                 <div/>
