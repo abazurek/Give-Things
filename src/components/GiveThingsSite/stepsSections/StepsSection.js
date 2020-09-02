@@ -35,31 +35,6 @@ const style = {
     marginBottom: '15px'
 };
 
-// const postInfo = {
-//     "formsData": [
-//         {"thing": "",
-//             "bags": "",
-//             "localization": "",
-//             "who": [],
-//             "pickupAddress": [
-//                 {"street": "",
-//                     "city": "",
-//                     "postCode": "",
-//                     "phone": ""
-//                 }
-//             ],
-//             "pickupData": [
-//                 {
-//                     "date": "",
-//                     "hour": "",
-//                     "message": ""
-//                 }
-//             ]
-//         }
-//
-//     ]
-// };
-
 const now = new Date();
 const currentDay = now.getDate();
 const currentMonth = now.getMonth() + 1;
@@ -102,14 +77,25 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
             break;
     }
 
-    const dateNumbers = date.split('-').map(item => parseInt(item));
-    const formYear = dateNumbers[0];
-    const formMouth = dateNumbers[1];
-    const formDay = dateNumbers[2];
-    const hourNumbers = hour.split(':').map(item => parseInt(item));
-    const formHour = hourNumbers[0];
-    const formMinutes = hourNumbers[1];
+    let dateNumbers
+    let formYear
+    let formMouth
+    let formDay
+    let hourNumbers
+    let formHour
+    let formMinutes
 
+    if (date) {
+        dateNumbers = date.split('-').map(item => parseInt(item));
+        formYear = dateNumbers[0];
+        formMouth = dateNumbers[1];
+        formDay = dateNumbers[2];
+        if(hour){
+            hourNumbers = hour.split(':').map(item => parseInt(item));
+            formHour = hourNumbers[0];
+            formMinutes = hourNumbers[1];
+        }
+    }
 
     function onClick(e) {
         e.preventDefault();
