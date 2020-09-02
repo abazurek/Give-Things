@@ -37,7 +37,7 @@ function giveFormsReducer(state = initialState, action) {
             };
         case types.NEW_WHO:
             return {
-                ...state, who: [action.who]
+                ...state, who: action.who
             };
         case types.REMOVE_WHO:
             return {

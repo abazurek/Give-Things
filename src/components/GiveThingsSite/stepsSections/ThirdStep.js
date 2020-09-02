@@ -33,17 +33,13 @@ const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd,setNewWh
         const whoLocal = localStorage.getItem('who');
         let whoTable=[];
         if(whoLocal){
-            console.log(whoLocal);
-            // whoLocal.forEach(item=>whoTable.push(item));
-            console.log(whoTable)
-            // whoTable=who.split(',');
+            whoTable=whoLocal.split(',');
+            setNewWho(whoTable)
         }
-        console.log(whoTable)
         for (let i = 0; i < whoTable.length; i++) {
             checkboxes.forEach(function (item) {
                 if (item.value === whoTable[i]) {
                     item.setAttribute('checked', 'checked');
-
                 }
             })
         }
@@ -53,14 +49,12 @@ const ThirdStep = ({title, who,organization, setLocalization, setWhoAdd,setNewWh
 
 
     function clickedCheckbox({target}) {
-        console.log(who)
         if (who.includes(target.value)) {
             setWhoRemove(target.value);
             return
         }
         return setWhoAdd(target.value);
     }
-
     if(who !== ''){
         localStorage.setItem('who',who);
     }
