@@ -90,9 +90,12 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
         formYear = dateNumbers[0];
         formMouth = dateNumbers[1];
         formDay = dateNumbers[2];
-        hourNumbers = hour.split(':').map(item => parseInt(item));
-        formHour = hourNumbers[0];
-        formMinutes = hourNumbers[1];
+        if(hour){
+            hourNumbers = hour.split(':').map(item => parseInt(item));
+            formHour = hourNumbers[0];
+            formMinutes = hourNumbers[1];
+        }
+
     }
 
     function onClick(e) {
