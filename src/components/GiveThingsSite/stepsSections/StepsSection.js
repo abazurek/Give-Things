@@ -103,13 +103,12 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     }
 
     const dateNumbers = date.split('-').map(item => parseInt(item));
-    const formYear=dateNumbers[0];
+    const formYear = dateNumbers[0];
     const formMouth = dateNumbers[1];
     const formDay = dateNumbers[2];
     const hourNumbers = hour.split(':').map(item => parseInt(item));
     const formHour = hourNumbers[0];
     const formMinutes = hourNumbers[1];
-
 
 
     function onClick(e) {
@@ -145,7 +144,7 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
             setMessage(`Data i godzina musi być co najmniej o 3 godziny większa od teraźniejszej i być pomiędzy 7 rano a 22 wieczorem, data i godzina w tym monencie to: ${currentDay}-0${currentMonth}-${currentYear}, godzina: ${currentHour}:${currentMinutes}`);
             return;
         } else if (count === 4 && ((formYear === currentYear && formMouth === currentMonth && formDay === currentDay && ((formHour === currentHour + 3 && formMinutes < currentMinutes - 1) || formHour < currentHour + 3))
-        || (formHour>22 || (formHour===22 && formMinutes!==0) || formHour<7))) {
+            || (formHour > 22 || (formHour === 22 && formMinutes !== 0) || formHour < 7))) {
             setMessage(`Data i godzina musi być co najmniej o 3 godziny większa od teraźniejszej i być pomiędzy 7 rano a 22 wieczorem, data i godzina w tym monencie to: ${currentDay}-0${currentMonth}-${currentYear}, godzina: ${currentHour}:${currentMinutes}`);
             return;
 
@@ -195,47 +194,47 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     };
 
     return (
-      <section className="giveThingFormsBox">
-        {count < 5 ? <ImportantSection info={information} /> : ""}
-        <section className="stepsSection">
-          {isComponent ? (
-            <div className="container">
-              {count < 5 ? (
-                <div id="stepsNum">
-                  <span className="num-of-step">Krok {count}/5</span>{" "}
-                  {component}
-                </div>
-              ) : (
-                  <div id="stepsNum">
-                      {component}
-                  </div>
-              )}
+        <section className="giveThingFormsBox">
+            {count < 5 ? <ImportantSection info={information}/> : ""}
+            <section className="stepsSection">
+                {isComponent ? (
+                    <div className="container">
+                        {count < 5 ? (
+                            <div id="stepsNum">
+                                <span className="num-of-step">Krok {count}/5</span>{" "}
+                                {component}
+                            </div>
+                        ) : (
+                            <div id="stepsNum">
+                                {component}
+                            </div>
+                        )}
+                        <p style={style}>{message}</p>
+                        <div className="buttons-box">
 
-              <div className="buttons-box">
-                <p style={style}>{message}</p>
-                {count !== 1 ? (
-                  <Link to="stepsNum" smooth={true}>
-                    <button onClick={backClick}>Wstecz</button>
-                  </Link>
+                            {count !== 1 ? (
+                                <Link to="stepsNum" smooth={true}>
+                                    <button onClick={backClick}>Wstecz</button>
+                                </Link>
+                            ) : (
+                                ""
+                            )}
+                            {count !== 5 ? (
+                                <Link to="stepsNum" smooth={true}>
+                                    <button onClick={onClick}>Dalej</button>
+                                </Link>
+                            ) : (
+                                <NavLink to="/thanksStep">
+                                    <button onClick={submitInformation}>Potwierdzam</button>
+                                </NavLink>
+                            )}
+                        </div>
+                    </div>
                 ) : (
-                  ""
+                    <ThanksStep/>
                 )}
-                {count !== 5 ? (
-                  <Link to="stepsNum" smooth={true}>
-                    <button onClick={onClick}>Dalej</button>
-                  </Link>
-                ) : (
-                  <NavLink to="/thanksStep">
-                    <button onClick={submitInformation}>Potwierdzam</button>
-                  </NavLink>
-                )}
-              </div>
-            </div>
-          ) : (
-            <ThanksStep />
-          )}
+            </section>
         </section>
-      </section>
     );
 };
 
