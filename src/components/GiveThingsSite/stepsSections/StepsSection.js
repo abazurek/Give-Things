@@ -95,7 +95,6 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
             formHour = hourNumbers[0];
             formMinutes = hourNumbers[1];
         }
-
     }
 
     function onClick(e) {
