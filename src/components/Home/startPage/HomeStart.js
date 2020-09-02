@@ -10,8 +10,8 @@ function HomeStart({user}) {
                 <div className='container'>
                     <div id='main-section' className='startMainSection'>
                         <div className='textBox'>
-                            <span>Zacznij pomagać! </span>
-                            <span>Oddaj niechciane rzeczy w zaufane ręce</span>
+                            <h1>Zacznij pomagać! </h1>
+                            <h1>Oddaj niechciane rzeczy w zaufane ręce</h1>
                             <img src={decoration} alt='decoration icon'/>
                         </div>
 

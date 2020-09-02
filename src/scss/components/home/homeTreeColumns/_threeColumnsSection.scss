@@ -12,17 +12,37 @@
     .infoBox{
       display: flex;
       flex-direction: column;
+      align-items: center;
       margin-top: 2.875em;
       margin-bottom: 5.375em;
       text-align: center;
       .boxNumber{
         color: $color-font-numbers;
-        font-size: 5.625em;
+        font-size: 4em;
+        @media #{$media-tablet}{
+          font-size: 5em;
+        }
+        @media #{$media-desktop}{
+          font-size: 5.625em;
+        }
+        @media #{$media-big-screen}{
+          font-size: 7.5em;
+        }
+
         font-weight: 300;
       }
       .boxInfoTitle{
         text-transform: uppercase;
-        font-size: 1.125em;
+
+        @media #{$media-tablet}{
+         font-size: 1.1em;
+        }
+        @media #{$media-desktop}{
+          font-size: 1.125em;
+        }
+        @media #{$media-big-screen}{
+          font-size: 2em;
+        }
         margin-top:0.55em ;
         margin-bottom: 1.55em;
         letter-spacing: -0.36px;
@@ -30,8 +50,16 @@
       p{
         font-family: $font-alt;
         font-weight: 300;
+        font-size: 0.8em;
         letter-spacing: -0.32px;
-        line-height: 18px;
+        line-height: 1.125em;
+        max-width: 90%;
+        @media #{$media-tablet, $media-desktop}{
+          font-size: 1em;
+        }
+        @media #{$media-big-screen}{
+          font-size: 2em;
+        }
       }
     }
   }

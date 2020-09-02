@@ -5,9 +5,17 @@
   .titleBox{
     text-align: center;
     h2{
-
-      font-size: 2.375em;
+      font-size: $font-mobile-size-title;
       margin-top: 1.45em;
+      @media #{$media-tablet } {
+        font-size:$font-tablet-size-title;
+      }
+      @media #{$media-desktop } {
+        font-size: $font-desktop-size-title;
+      }
+      @media #{$media-big-screen } {
+        font-size:$font-bigScreen-size-title;
+      }
     }
     img{
       margin-top: 1.5625em;
@@ -20,33 +28,59 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      @media #{$media-desktop,$media-big-screen } {
+      @media #{$media-tablet,$media-desktop,$media-big-screen } {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
       }
       .singleIconBox{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 5em;
+        margin-bottom: 2em;
         justify-content: center;
         max-width: 164px;
+        @media #{$media-big-screen} {
+          max-width: 300px;
+        }
         text-align: center;
         &:first-of-type{
-          margin-top: 4.5625em;
+          margin-top: 3em;
+          @media #{$media-tablet, $media-desktop, $media-big-screen} {
+            margin-top: 4.5625em;
+          }
         }
         @media #{$media-tablet,$media-desktop,$media-big-screen } {
           margin-top: 4.5625em;
+          margin-bottom: 5em;
+        }
+        img{
+          @media #{$media-big-screen} {
+            width: 150px;
+            height: auto;
+          }
+
         }
         .firstSpan{
           font-size: 1.125em;
           margin:0.45em auto;
+          @media #{$media-big-screen}{
+            font-size: 2.5em;
+          }
+        }
+        .secondSpan{
+          @media #{$media-big-screen}{
+            font-size: 2em;
+          }
+
         }
         hr{
           display: block;
           color: $color-font-accent;
           width: 30%;
-
+          @media #{$media-big-screen} {
+            width: 60%;
+          }
         }
       }
     }

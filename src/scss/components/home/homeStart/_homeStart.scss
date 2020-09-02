@@ -9,11 +9,18 @@
   @media #{$media-tablet,$media-desktop,$media-big-screen }{
     background-position-x: -483px;
   }
+  @media #{$media-big-screen }{
+    background-size: cover;
+    background-position-x: -483px;
+  }
   z-index: 1;
   display: flex;
   flex-direction: column;
   .startMainSection {
     margin-top: 210px;
+    @media #{$media-big-screen} {
+      margin-top: 310px;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,12 +31,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      span{
+      h1{
         text-align: center;
-        font-size: 30px;
+        font-size: $font-mobile-size-title;
         color: $color-font-base;
-        @media #{$media-tablet,$media-desktop,$media-big-screen }{
-          font-size: 38px;
+        @media #{$media-tablet}{
+          font-size: $font-tablet-size-title;
+        }
+        @media #{$media-desktop }{
+          font-size: $font-desktop-size-title;
+        }
+        @media #{$media-big-screen }{
+          font-size:$font-bigScreen-size-title;
         }
       }
     }

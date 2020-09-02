@@ -5,8 +5,17 @@
 
   h2{
     margin-top: calc(3.075em + #{$header-height});
-    font-size: 2.5em;
+    font-size: $font-mobile-size-title;
     text-align: center;
+    @media #{$media-tablet} {
+      font-size: $font-tablet-size-title;
+    }
+    @media #{$media-desktop} {
+      font-size: $font-desktop-size-title;
+    }
+    @media #{$media-big-screen} {
+      font-size: $font-bigScreen-size-title;
+    }
   }
   img{
     margin-top: 1.5625em;
