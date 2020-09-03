@@ -5,20 +5,10 @@
   .titleBox{
     text-align: center;
     h2{
-      font-size: $font-mobile-size-title;
       margin-top: 1.45em;
-      @media #{$media-tablet } {
-        font-size:$font-tablet-size-title;
-      }
-      @media #{$media-desktop } {
-        font-size: $font-desktop-size-title;
-      }
-      @media #{$media-big-screen } {
-        font-size:$font-bigScreen-size-title;
-      }
+      @include fontSizesTitles;
     }
     img{
-      margin-top: 1.5625em;
       margin-bottom: 2.125em;
     }
   }

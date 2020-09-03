@@ -35,15 +35,15 @@ body {
     padding: 0 25px;
   }
   @media #{$media-big-screen} {
-    max-width: 1490px;
+    max-width: 1700px;
     padding: 0 30px;
   }
 
-
-
-
 }
-
+.decoration{
+  @include imgProperties;
+  margin-top: 1.5625em;
+}
 .navLink{
   text-decoration: none;
   color: $color-font-base;

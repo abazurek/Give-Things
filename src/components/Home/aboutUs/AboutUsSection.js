@@ -10,7 +10,7 @@ export default function AboutUs({ mediaDesktop, mediaBigScreen}) {
             <div className=' aboutUs-textBox'>
                 <div className='text'>
                     <h2>O nas</h2>
-                    <img src={decoration} alt='decoration icon'/>
+                    <img className='decoration' src={decoration} alt='decoration icon'/>
                     <p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
                         Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.</p>
                     <div className='signatureBox'>

@@ -37,10 +37,7 @@
       margin-top: 12.5em;
       margin-bottom: 4.375em;
       h2{
-        font-size: 3.25em;
-      }
-      img{
-        margin-top: 1.5625em;
+        @include fontSizesTitles;
       }
     }
 
@@ -52,6 +49,7 @@
         display: flex;
         flex-direction: column;
         font-weight: 600;
+        @include fontSizesOrganization;
         &:first-child{
           margin-bottom: 1.5em;
           @media #{$media-tablet,$media-desktop,$media-big-screen } {
@@ -64,7 +62,7 @@
           margin-top: 0.5em;
           border: none;
           background: none;
-          font-size: 1.125em;
+          font-size: 1em;
           padding: 4px 0;
           border-bottom: 1px solid $color-border-input;
           &:focus{
@@ -101,7 +99,7 @@
           border: 0.75px solid $color-font-base;
           font-weight: 300;
           background: none;
-          font-size: 1.125em;
+          @include fontSizesOrganization;
           padding: 0.72em 2.89em;
           &:hover{
             cursor: pointer;
@@ -110,5 +108,14 @@
         }
       }
     }
+  }
+  .errorMessage{
+    color: red;
+    fontSize: 1em;
+  }
+  .successMessage{
+    color:green;
+    @include fontSizesOrganization;
+    margin:5px 0;
   }
 }
