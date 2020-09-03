@@ -12,20 +12,10 @@
         margin: 0 9.375em;
       }
       h2{
-        font-size: $font-mobile-size-title;
         margin-top: 4.9em;
-        @media #{$media-tablet} {
-          font-size: $font-tablet-size-title;
-        }
-        @media #{$media-desktop } {
-          font-size:$font-desktop-size-title;
-        }
-        @media #{$media-big-screen} {
-          font-size:$font-bigScreen-size-title;
-        }
+       @include fontSizesTitles;
       }
       img{
-        margin-top: 1.625em;
         margin-bottom: 3.4375em;
       }
       p{

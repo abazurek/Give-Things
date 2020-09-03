@@ -12,7 +12,7 @@ function HomeStart({user}) {
                         <div className='textBox'>
                             <h1>Zacznij pomagać! </h1>
                             <h1>Oddaj niechciane rzeczy w zaufane ręce</h1>
-                            <img src={decoration} alt='decoration icon'/>
+                            <img className='decoration' src={decoration} alt='decoration icon'/>
                         </div>
 
                         <div className='main-section-buttons'>

@@ -6,61 +6,99 @@
 
   p {
     max-width: 640px;
-    font-size: 1.375em;
+    font-size: $font-mobile-size-paragraph;
+    @media #{$media-tablet, $media-desktop}{
+      font-size: 1.375em;
+    }
+    @media #{$media-big-screen}{
+      font-size: $font-bigScreen-size-paragraph;
+      max-width: 1200px;
+    }
     text-align: center;
     margin-bottom: 1.54em;
   }
+
   .organizationsList {
     font-family: $font-alt;
     font-weight: 300;
     width: 100%;
-    .singleTextBox{
+
+    &:not(:nth-of-type(3)) {
+      border-bottom: 1px solid $color-border-input;
+    }
+
+    .singleTextBox {
       display: flex;
       flex-direction: column;
+
       @media #{$media-desktop,$media-big-screen } {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
       }
-      .textBoxLeft{
+
+      .textBoxLeft {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1.875em;
         margin-top: 2em;
-        span{
-          &:first-child{
-            font-size:1.625em;
+        margin-bottom: 0.7em;
+        @media #{$media-desktop, $media-big-screen} {
+          margin-bottom: 1.875em;
+        }
+        span {
+          &:first-child {
+            font-size: 1.4em;
+            @media #{$media-tablet}{
+              font-size: 1.5em;
+            }
+            @media #{ $media-desktop}{
+              font-size: 1.625em;
+            }
+            @media #{$media-big-screen}{
+              font-size:2.4em;
+            }
             margin-bottom: 0.7em;
             text-align: center;
+            line-height: 1.3em;
             @media #{$media-desktop,$media-big-screen } {
               margin-bottom: 0.23em;
               text-align: left;
             }
 
           }
-          &:last-child{
-            font-size: 1.125em;
+          &:last-child {
+            @include fontSizesOrganization;
           }
         }
       }
-      >span{
-        font-size:1.125em ;
+
+      > span {
+        @include fontSizesOrganization;
+        margin-bottom: 1em;
+        @media #{$media-desktop,$media-big-screen } {
+          margin-bottom: 0;
+          text-align: right;
+        }
       }
     }
   }
-  .buttons{
-    button{
+
+  .buttons {
+    margin-top: 33px;
+    button {
       color: $color-font-base;
-      font-size: 1.125em;
+      @include fontSizesOrganization;
       font-family: $font-base;
       padding: 0.72em 0.83em;
       background: none;
-      border:1px solid $color-border-input;
+      border: 1px solid $color-border-input;
       cursor: pointer;
-      &:nth-child(2){
+
+      &:nth-child(2) {
         margin: 0 1.23em;
       }
-      &:focus{
+
+      &:focus {
         outline: none;
       }
     }

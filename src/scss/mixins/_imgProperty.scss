@@ -1,0 +1,9 @@
+@mixin imgProperties{
+  width: 200px;
+  @media #{$media-tablet, $media-desktop}{
+    width: auto;
+  }
+  @media #{$media-big-screen}{
+    width: 450px;
+  }
+}

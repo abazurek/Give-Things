@@ -29,7 +29,7 @@ export default function HelpBox({choosen}) {
                         </div>
                         <span>{item.what}</span>
                     </div>
-                    <hr/>
+                    {/*<hr/>*/}
                 </div>
             ))}
             <div className='buttons'>

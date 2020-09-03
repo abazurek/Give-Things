@@ -1,0 +1,12 @@
+@mixin fontSizesOrganization(){
+  font-size: 0.9em;
+  @media #{$media-tablet}{
+    font-size: 1em;
+  }
+  @media #{ $media-desktop}{
+    font-size: 1.125em;
+  }
+  @media #{$media-big-screen}{
+    font-size:1.7em;
+  }
+}

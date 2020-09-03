@@ -35,7 +35,7 @@ export default function WhoWeHelp() {
         <section id='help' className='whoWeHelpSection container'>
             <div className='helpTitle'>
                 <h2>Komu pomagamy?</h2>
-                <img src={decoration} alt='decoration icon'/>
+                <img className='decoration' src={decoration} alt='decoration icon'/>
             </div>
             <div className='buttonsBox'>
                 <button className={borderF} value='first' onClick={({target})=>setInfo(target.value)} >Fundacjom</button>

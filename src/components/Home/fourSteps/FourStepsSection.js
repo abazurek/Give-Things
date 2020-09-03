@@ -17,7 +17,7 @@ export default function FourStepsSection() {
         <section id='four-steps' className='fourStepsSection'>
             <div className='titleBox'>
                 <h2>Wystarczą 4 proste kroki</h2>
-                <img src={decoration} alt='decoration icon'/>
+                <img className='decoration' src={decoration} alt='decoration icon'/>
             </div>
             <div className='iconsBox'>
                 <div className='container'>
