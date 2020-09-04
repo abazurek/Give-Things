@@ -25,8 +25,8 @@ function App() {
     });
 
     const isSmall = useMediaQuery({
-        query:'(max-device-width:400px)'
-    })
+        query:'(max-device-width:765px)'
+    });
 
   return (
       <Router>
