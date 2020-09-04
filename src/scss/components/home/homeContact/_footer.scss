@@ -8,10 +8,26 @@
   .footerText{
     width: 100%;
     text-align: center;
+    span{
+      font-size: 0.7em;
+      @media #{$media-tablet, $media-desktop}{
+       font-size: 1em;
+      }
+      @media #{$media-big-screen}{
+       font-size: 1.5em;
+      }
+    }
   }
   .mediaIcons{
     display: flex;
     img{
+      width: 20px;
+      @media #{$media-tablet, $media-desktop}{
+        width: 30px;
+      }
+      @media #{$media-big-screen}{
+        width: 40px;
+      }
       &:first-child{
         margin-right:1.25em ;
       }
