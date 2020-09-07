@@ -2,31 +2,44 @@
   width: 100vw;
   background-image: url("../../../assets/Form-Hero-Image.jpg");
   background-repeat: no-repeat;
-  background-position-x: -1200px;
+  background-position-x: -800px;
   background-size: cover;
+  @media(min-width: 500px) {
+    background-position-x: -700px;
+  }
   @media #{$media-tablet} {
     background-position-x: -650px;
   }
   @media #{$media-desktop} {
-    background-position-x: -350px;
+    background-position-x: -450px;
   }
   @media #{$media-big-screen} {
     background-position-x: 0;
+    background-size: contain;
   }
-  @media #{$media-tablet,$media-desktop, $media-big-screen} {
+  @media #{$media-tablet,$media-desktop} {
    background-size: auto;
   }
 
   .container {
     display: flex;
     justify-content: center;
-    @media #{$media-desktop, $media-big-screen} {
+    @media #{$media-tablet, $media-desktop, $media-big-screen} {
       justify-content: flex-end;
     }
   }
 
   .text-box {
-    margin-top: calc(8.375em + #{$header-height});
+    margin-top: calc(5em + #{$header-height});
+    @media #{$media-tablet}{
+      margin-top: calc(6em + #{$header-height});
+    }
+    @media #{$media-desktop}{
+      margin-top: calc(8.375em + #{$header-height});
+    }
+    @media #{$media-big-screen}{
+      margin-top: calc(12em + #{$header-height});
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,20 +48,17 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
+      margin-bottom: 1.2em;
       h2 {
         text-align: center;
-        font-size: 2.375em;
-
+        @include fontSizesTitles;
         span {
           display: block;
           text-transform: uppercase;
         }
 
-        margin-bottom: 1.5625em;
       }
 
-      margin-bottom: 1.2em;
     }
 
     .four-steps {
@@ -57,11 +67,19 @@
       align-items: center;
       h3 {
         font-weight: lighter;
-        font-size: 2.5em;
+        font-size: 1.5em;
         padding-bottom: 0.645em;
         text-align: center;
+        @media #{$media-tablet} {
+          font-size: 1.7em;
+        }
+        @media #{$media-desktop} {
+          font-size: 2em;
+        }
+        @media #{$media-big-screen} {
+          font-size: 2.5em;
+        }
       }
-
 
       .steps-box {
         display: flex;
@@ -72,8 +90,20 @@
         }
         .single-stepBox {
           transform: rotate(45deg);
-          width: 8.4em;
-          height: 8.4em;
+          width: 6em;
+          height: 6em;
+          @media #{$media-tablet}{
+            width: 7em;
+            height: 7em;
+          }
+          @media #{$media-desktop}{
+            width: 8.4em;
+            height: 8.4em;
+          }
+          @media #{$media-big-screen}{
+            width: 15em;
+            height: 15em;
+          }
           border: 0.75px solid $color-font-base;
           margin: 10px 0;
           @media #{$media-tablet,$media-desktop, $media-big-screen} {
@@ -90,22 +120,39 @@
             text-align: center;
             span {
               font-weight: lighter;
-
               &:first-child {
-                font-size: 2em;
+                @include fontSizesParagraphs;
                 margin-bottom: 0.3125em;
               }
-
               &:last-child {
-                font-size: 1.375em;
+                font-size: 1em;
+                @media #{$media-tablet}{
+                  font-size: 1.1em;
+                }
+                @media #{$media-desktop}{
+                  font-size: 1.375em;
+                }
+                @media #{$media-big-screen}{
+                  font-size: 2em;
+                }
+
               }
             }
           }
 
 
         }
+        margin-bottom: 4em;
+        @media #{$media-tablet}{
+          margin-bottom: 7em;
+        }
+        @media #{$media-desktop}{
+          margin-bottom: 8.8125em;
+        }
+        @media #{$media-big-screen}{
+          margin-bottom: 10em;
+        }
 
-        margin-bottom: 8.8125em;
       }
     }
 
