@@ -1,0 +1,12 @@
+@mixin fontSizesParagraphs(){
+  font-size: $font-mobile-size-paragraph;
+  @media #{$media-tablet}{
+    font-size: $font-tablet-size-paragraph;
+  }
+  @media #{$media-desktop}{
+    font-size: $font-desktop-size-paragraph;
+  }
+  @media #{$media-big-screen}{
+    font-size: $font-bigScreen-size-paragraph;
+  }
+}

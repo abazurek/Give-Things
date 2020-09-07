@@ -1,11 +1,13 @@
-
 .stepsSection {
   background-image: url("../../../../assets/Background-Form.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   padding-top: 2.25em;
-  @media #{$media-tablet, $media-desktop,$media-big-screen} {
+  @media #{$media-tablet, $media-desktop} {
     height: 883px;
+  }
+  @media #{$media-big-screen} {
+    height: 1300px;
   }
   @media #{$media-big-screen } {
     background-position-x:right;
@@ -32,27 +34,33 @@
   }
 
   .num-of-step {
-    font-size: 1.5em;
+    @include fontSizesBase;
   }
 
   .step-title {
     font-size: 1.4em;
     max-width: 90%;
-    @media #{$media-desktop,$media-big-screen } {
+    @media #{$media-tablet } {
+      font-size: 1.8em;
+    }
+    @media #{$media-desktop } {
      font-size: 2.25em;
     }
-    @media #{$media-tablet } {
-     font-size: 1.8em;
+    @media #{$media-big-screen } {
+     font-size: 3.5em;
     }
 
     font-weight: bolder;
-    margin: 1.95em 0 1.11em 0;
+    margin: 1em 0 1em 0;
+    @media #{$media-tablet, $media-desktop, $media-big-screen} {
+      margin: 1.95em 0 1.11em 0;
+    }
   }
 
   form {
     display: flex;
     flex-direction: column;
-   //margin-bottom: 1.7em;
+    @include fontSizesBase;
     @media #{$media-desktop,$media-big-screen } {
       //margin-bottom: 7.25em;
     }
@@ -61,7 +69,6 @@
       @media #{$media-desktop,$media-big-screen } {
         margin-bottom: 2.625em;
       }
-
       display: flex;
       align-items: center;
     }
@@ -70,8 +77,16 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      width: 40px;
-      height: 40px;
+      min-width: 30px;
+      height: 30px;
+      @media #{$media-tablet, $media-desktop} {
+        min-width: 40px;
+        height: 40px;
+      }
+      @media #{$media-big-screen} {
+        min-width: 60px;
+        height: 60px;
+      }
       background: none;
       border: 0.75px solid $color-font-base;
       border-radius: 0;
@@ -79,12 +94,22 @@
       vertical-align: middle;
       outline: none;
       position: relative;
-      margin-right: 30px;
-
+      margin-right: 15px;
+      @media #{$media-tablet,$media-desktop,$media-big-screen } {
+        margin-right: 30px;
+      }
       &:checked:after {
         content: '';
-        width: 40px;
-        height: 40px;
+        min-width: 30px;
+        height: 30px;
+        @media #{$media-tablet, $media-desktop} {
+          min-width: 40px;
+          height: 40px;
+        }
+        @media #{$media-big-screen} {
+          min-width: 60px;
+          height: 60px;
+        }
         position: absolute;
         left: 50%;
         top: 50%;
@@ -92,7 +117,6 @@
         border: 0.75px solid $color-font-base;
         background-color: $color-input-checked;
       }
-
     }
   }
 
@@ -119,16 +143,21 @@
     background: none;
     border: 0.75px solid $color-font-base;
     font-weight: 300;
-    font-size: 1.2em;
     padding: 1em 2.625em;
     width: 80%;
     font-family: $font-base;
     display: flex;
     justify-content: center;
     text-decoration: none;
-    @media #{$media-tablet,$media-desktop,$media-big-screen } {
+    @include fontSizesBase;
+    @media #{$media-tablet } {
+      width: 140px;
+    }
+    @media #{$media-desktop } {
       width: 180px;
-      font-size: 1.5em;
+    }
+    @media #{$media-big-screen } {
+      width: 280px;
     }
     &:first-of-type {
       margin-top: 1em;
@@ -141,18 +170,12 @@
   }
 
   .box {
-    font-size: 1.1em;
     font-family: $font-base;
-    @media #{$media-tablet} {
-      font-size: 1.2em;
-    }
-    @media #{ $media-desktop,$media-big-screen} {
-      font-size: 1.5em;
-    }
-    h3 {
-      font-weight: bolder;
-      margin-bottom: 0.83em;
-    }
+    @include fontSizesBase;
+    //h3 {
+    //  font-weight: bolder;
+    //  margin-bottom: 0.83em;
+    //}
 
     span {
       margin-right: 1em;
@@ -160,11 +183,18 @@
 
     .custom-select {
       position: relative;
-      width: 300px;
+      width: 200px;
       color: $color-font-base;
       display: inline-block;
       font-weight: lighter;
-
+      margin-top: 0.5em;
+      @media #{$media-tablet, $media-desktop, $media-big-screen} {
+        margin-top: 0;
+        width: 300px;
+      }
+      @media #{$media-big-screen} {
+        width: 500px;
+      }
       select {
         display: none;
       }
@@ -182,9 +212,20 @@
         background-image: url("../../../../assets/Icon-Arrow-Down.svg");
         top: 12px;
         right: 0;
-        width: 57px;
-        height: 26px;
+        width: 40px;
+        height: 40px;
+        background-size: contain;
+        background-repeat: no-repeat;
         border: none;
+        @media #{$media-tablet, $media-desktop} {
+          width: 57px;
+          height: 57px
+        }
+        @media #{$media-big-screen} {
+          top: 20px;
+          width: 80px;
+          height: 80px
+        }
       }
     }
 
@@ -201,14 +242,22 @@
       position: absolute;
       background: #E8E9E4 0 0 no-repeat padding-box;;
       border: $border-base;
-      top: 64px;
+      top: 44px;
       right: 0;
       padding: 4px 36px;
       display: flex;
       flex-direction: column;
       align-items: center;
       z-index: 99;
-
+      width: 4px;
+      @media #{$media-tablet, $media-desktop} {
+        top: 64px;
+        width: auto;
+      }
+      @media #{$media-big-screen} {
+        top: 88px;
+        width: 80px;
+      }
       div {
         padding: 2px 0;
       }

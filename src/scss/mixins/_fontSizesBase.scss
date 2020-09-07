@@ -1,0 +1,12 @@
+@mixin fontSizesBase(){
+  font-size: $font-base-text-mobile;
+  @media #{$media-tablet}{
+    font-size:  $font-base-text-tablet;
+  }
+  @media #{$media-desktop}{
+    font-size:  $font-base-text-dekstop;
+  }
+  @media #{$media-big-screen}{
+    font-size:  $font-base-text-bigScreen;
+  }
+}

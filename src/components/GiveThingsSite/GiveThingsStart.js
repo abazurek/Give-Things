@@ -9,7 +9,7 @@ function GiveThingsStart() {
                 <div className='text-box'>
                     <div className='title-box'>
                         <h2>Oddaj rzeczy, których już nie chcesz <span>potrzebującym</span></h2>
-                        <img src={decoration} alt='decoration icon'/>
+                        <img className='decoration' src={decoration} alt='decoration icon'/>
                     </div>
                     <div className='four-steps'>
                        <h3>Wystarczą 4 proste kroki:</h3>
