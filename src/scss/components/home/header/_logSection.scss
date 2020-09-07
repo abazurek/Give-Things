@@ -13,9 +13,12 @@
   li{
     margin-top: 2.85em;
     margin-left: 0.7em;
-    font-size: 14px;
+    font-size: 10px;
+    @media #{$media-desktop} {
+      font-size: 12px;
+    }
     @media #{$media-big-screen} {
-      font-size: 24px;
+      font-size: 20px;
     }
     a{
       color: $color-font-accent;
