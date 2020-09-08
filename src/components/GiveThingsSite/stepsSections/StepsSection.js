@@ -30,10 +30,6 @@ const informs = {
     fourth: ' Podaj adres oraz termin odbioru rzeczy.'
 };
 
-const style = {
-    color: "red",
-    marginBottom: '15px'
-};
 
 const now = new Date();
 const currentDay = now.getDate();
@@ -77,13 +73,13 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
             break;
     }
 
-    let dateNumbers
-    let formYear
-    let formMouth
-    let formDay
-    let hourNumbers
-    let formHour
-    let formMinutes
+    let dateNumbers;
+    let formYear;
+    let formMouth;
+    let formDay;
+    let hourNumbers;
+    let formHour;
+    let formMinutes;
 
     if (date) {
         dateNumbers = date.split('-').map(item => parseInt(item));
@@ -195,7 +191,7 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
                                 {component}
                             </div>
                         )}
-                        <p style={style}>{message}</p>
+                        <p className='message'>{message}</p>
                         <div className="buttons-box">
 
                             {count !== 1 ? (

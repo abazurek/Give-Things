@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { connect } from "react-redux";
 import actions from "../../../app/giveForms/duck/actions";
 
@@ -23,7 +23,7 @@ const FourthStep = ({
   return (
     <div>
       <h2 className="step-title">{title}</h2>
-      <div className="fourth-forms box">
+      <div className="fourth-forms">
         <form>
           <h3>Adres obioru</h3>
           <label>

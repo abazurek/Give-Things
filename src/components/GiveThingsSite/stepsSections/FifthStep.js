@@ -8,9 +8,9 @@ import localization from "./../../../assets/Icon-4.svg";
 const FifthStep = ({ info }) => {
   return (
     <div className="fifthStep">
-      <h1>Podsumowanie Twojej darowizny</h1>
+      <h3>Podsumowanie Twojej darowizny</h3>
       <div className="box ">
-        <h3>Oddajesz:</h3>
+        <h4>Oddajesz:</h4>
         <div className="summaryLine">
           <img src={shirt} alt="shirt-icon" />{" "}
           <span>
@@ -29,7 +29,7 @@ const FifthStep = ({ info }) => {
         </div>
         <div className="summaryForms">
           <div className="summarySingleBox">
-            <h3>Adres odbioru:</h3>
+            <h4>Adres odbioru:</h4>
             <div>
               <p>Ulica:</p> <p>{info.street} </p>{" "}
             </div>
@@ -44,7 +44,7 @@ const FifthStep = ({ info }) => {
             </div>
           </div>
           <div className="summarySingleBox">
-            <h3>Termin odbioru:</h3>
+            <h4>Termin odbioru:</h4>
             <div>
               <p>Data:</p> <p>{info.date} </p>{" "}
             </div>
