@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 
 export default function ThanksStep() {
 
+
     return (
 
             <div className='thanksBox'>

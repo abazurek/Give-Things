@@ -3,7 +3,32 @@
     {
       "id": 1,
       "email": "admin@admin.pl",
-      "password": "innehaslo"
+      "password": "innehaslo",
+      "formsData": [
+        {
+          "thing": "zabawki",
+          "bags": "5",
+          "localization": "Warszawa",
+          "who": [
+            "samotnym matkom"
+          ],
+          "pickupAddress": [
+            {
+              "street": "ew",
+              "city": "efw",
+              "postCode": "98-986",
+              "phone": "123456789"
+            }
+          ],
+          "pickupData": [
+            {
+              "date": "2020-09-10",
+              "hour": "14:12",
+              "message": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
