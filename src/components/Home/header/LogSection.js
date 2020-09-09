@@ -1,9 +1,13 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import actions from "../../../app/log/duck/actions";
 
-function LogSection({mediaSmall, burgerActive, user, setUser}) {
+function LogSection({mediaSmall, burgerActive, user,data, setUser}) {
+
+    useEffect(function () {
+        setUser(localStorage.getItem('user'));
+    },[data]);
 
     function logOut() {
         setUser(false);
@@ -42,7 +46,8 @@ function LogSection({mediaSmall, burgerActive, user, setUser}) {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.log.user
+    user: state.log.user,
+    data: state.log.data
 });
 
 const mapDispatchToProps = dispatch => ({

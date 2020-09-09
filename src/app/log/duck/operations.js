@@ -13,6 +13,7 @@ const login = (info) => dispatch => {
                     dispatch(actions.setUser(info.email));
                     table.push(item.email);
                     localStorage.setItem('user', info.email);
+                    localStorage.setItem('userID', item.id);
                 }
 
             });
@@ -43,9 +44,10 @@ const register = (user) => dispatch => {
                     }
                 })
                     .then(response => response.json())
-                    .then(()=>{
+                    .then((data)=>{
                         dispatch(actions.setUser(user.email));
                         localStorage.setItem('user', user.email);
+                        localStorage.setItem('userID', data.id);
                     })
                     .catch(err => console.log(err));
 
@@ -59,9 +61,9 @@ const register = (user) => dispatch => {
 };
 
 
-const postFormData = (data) => dispatch => {
-    fetch(API, {
-        method: "POST",
+const postFormData = (id,data) => dispatch => {
+    fetch(`http://localhost:3004/log/${id}`, {
+        method: "PATCH",
         body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json"

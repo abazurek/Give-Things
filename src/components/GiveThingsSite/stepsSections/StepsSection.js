@@ -12,7 +12,7 @@ import FifthStep from "./FifthStep";
 import ThanksStep from "./ThanksStep";
 
 import actionsForm from "../../../app/giveForms/duck/actions";
-import actionsPost from "../../../app/log/duck/actions";
+import operations from "../../../app/log/duck/operations";
 
 
 const titles = {
@@ -139,7 +139,6 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
         setCount(prev => prev - 1)
     }
 
-
     const submitInformation = (e) => {
         e.preventDefault();
         data = {
@@ -168,7 +167,8 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
             ]
         };
-        postFormData(data.formsData);
+        const userID = localStorage.getItem('userID');
+        postFormData(userID, data);
         setIsComponent(false);
         clear();
         const itemsToRemove = ["thing", "bags", "localization", "who", "street", "city", "postCode", "phone", "date", "hour", "message"];
@@ -223,7 +223,7 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
 
 const mapDispatchToProps = dispatch => ({
     clear: () => dispatch(actionsForm.clearAll()),
-    postFormData: (data) => dispatch(actionsPost.postFormsData(data))
+    postFormData: (id,data) => dispatch(operations.postFormData(id,data))
 });
 
 const mapStateToProps = state => ({
