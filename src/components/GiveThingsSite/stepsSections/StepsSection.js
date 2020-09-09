@@ -100,7 +100,6 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
             setMessage('Musisz zaznaczyć jedno pole aby przejść dalej');
             return;
         } else if (count === 2 && bags === '') {
-            // console.log(localStorage.bags);
             setMessage('Musisz wybrać ilość worków aby przejść dalej');
             return;
         } else if (count === 3 && localization === '' || count === 3 && who.length === 0) {
@@ -136,7 +135,8 @@ const StepsSection = ({thing, bags, localization, who, street, city, postCode, p
     }
 
     function backClick() {
-        setCount(prev => prev - 1)
+        setCount(prev => prev - 1);
+        setMessage('')
     }
 
     const submitInformation = (e) => {
