@@ -40,7 +40,6 @@ const Contact = ({ data, error, post }) => {
       setTrueOrFalse((prev) => ({ ...prev, message: true }));
       return;
     }
-    console.log(info);
     post(info);
     setTrueOrFalse({ name: false, email: false, message: false });
     setInfo(information);
