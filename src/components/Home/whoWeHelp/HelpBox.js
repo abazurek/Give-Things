@@ -11,7 +11,6 @@ export default function HelpBox({choosen}) {
         sidesCountTable.push(i)
     }
 
-
     useEffect(function () {
         setNumberSide(number);
     },[choosen]);

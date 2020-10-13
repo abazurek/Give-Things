@@ -10,7 +10,7 @@ function NavSection({mediaTablet, mediaDesktop, mediaBigScreen, active, setActiv
 
     function clickBurger(e) {
         e.preventDefault();
-        active ? setActive(false) : setActive(true);
+       setActive(!active)
     }
 
     function looseActive() {
